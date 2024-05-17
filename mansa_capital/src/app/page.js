@@ -6,7 +6,7 @@ export default function Home() {
   return (
 
 <div>
-  You are in homepage
+  You are in homepage.
 </div>
 
   );
