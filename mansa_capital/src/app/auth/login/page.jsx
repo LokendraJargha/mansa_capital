@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import PasswordInput from "@/components/ui/password";
 
 export default function Login() {
   return (
@@ -20,11 +21,11 @@ export default function Login() {
       <CardContent className="space-y-2">
         <div className="space-y-1">
           <Label htmlFor="email">REGISTERED EMAIL</Label>
-          <Input id="email" />
+          <Input id="email" type="email" />
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 relative">
           <Label htmlFor="password">PASSWORD</Label>
-          <Input id="password" />
+          <PasswordInput />
         </div>
       </CardContent>
       <div className="flex items-center px-6 pb-3 space-x-2">

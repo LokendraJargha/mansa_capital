@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
+import PasswordInput from "@/components/ui/password";
 
 export default function Register() {
   return (
@@ -20,23 +21,24 @@ export default function Register() {
       <CardContent className="space-y-2">
         <div className="space-y-1">
           <Label htmlFor="firstName">FIRST NAME</Label>
-          <Input id="name" />
+          <Input id="firsrname" />
         </div>
         <div className="space-y-1">
           <Label htmlFor="lastName">LAST NAME</Label>
-          <Input id="name" />
+          <Input id="lastname" />
         </div>
         <div className="space-y-1">
           <Label htmlFor="email">EMAIL</Label>
-          <Input id="email" />
+          <Input id="email" type="email" />
         </div>
-        <div className="space-y-1">
+        <div className="space-y-1 relative">
           <Label htmlFor="password">PASSWORD</Label>
-          <Input id="password" />
+          <PasswordInput />
         </div>
-        <div className="space-y-1">
-          <Label htmlFor="password">CONFIRM PASSWORD</Label>
-          <Input id="password" />
+        <div className="space-y-1 relative">
+          <Label htmlFor="confirmpassword">CONFIRM PASSWORD</Label>
+
+          <PasswordInput />
         </div>
       </CardContent>
 
