@@ -2,21 +2,21 @@
 import { useState } from "react";
 import Navbar from "@/components/ui/navbar";
 
-import Strategy from "./strategy/page";
-import Setup from "./setup/page";
-import Backtest from "./backtest/page";
+import Analysis from "./analysis/page";
+import Ideas from "./ideas/page";
+import Trades from "./trades/page";
 
-const Plan = () => {
-  const [activeTab, setActiveTab] = useState("strategy");
+const Execute = () => {
+  const [activeTab, setActiveTab] = useState("analysis");
 
   const renderContent = () => {
     switch (activeTab) {
-      case "strategy":
-        return <Strategy />;
-      case "setup":
-        return <Setup />;
-      case "backtest":
-        return <Backtest />;
+      case "analysis":
+        return <Analysis />;
+      case "ideas":
+        return <Ideas />;
+      case "trades":
+        return <Trades />;
       default:
         return null;
     }
@@ -31,32 +31,30 @@ const Plan = () => {
       <Navbar />
       <div className="flex justify-around bg-gray-100 p-4 mx-auto w-[50%]">
         <button
-          onClick={() => handleTabClick("strategy")}
+          onClick={() => handleTabClick("analysis")}
           className={`p-2 ${
-            activeTab === "strategy"
+            activeTab === "analysis"
               ? "font-bold border-b-2 border-gray-800"
               : ""
           }`}
         >
-          Strategy
+          Analysis
         </button>
         <button
-          onClick={() => handleTabClick("setup")}
+          onClick={() => handleTabClick("ideas")}
           className={`p-2 ${
-            activeTab === "setup" ? "font-bold border-b-2 border-gray-800" : ""
+            activeTab === "ideas" ? "font-bold border-b-2 border-gray-800" : ""
           }`}
         >
-          Setup
+          Ideas
         </button>
         <button
-          onClick={() => handleTabClick("backtest")}
+          onClick={() => handleTabClick("trades")}
           className={`p-2 ${
-            activeTab === "backtest"
-              ? "font-bold border-b-2 border-gray-800"
-              : ""
+            activeTab === "trades" ? "font-bold border-b-2 border-gray-800" : ""
           }`}
         >
-          Backtest
+          Trades
         </button>
       </div>
       <div className="p-4 bg-white border border-gray-300 mt-4">
@@ -66,4 +64,4 @@ const Plan = () => {
   );
 };
 
-export default Plan;
+export default Execute;
