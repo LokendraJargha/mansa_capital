@@ -30,9 +30,9 @@ export default function Settings() {
         <div>
           <div>
             <div className="space-y-1 w-full ">
+              <Profile />
               <Subscription />
               <Accounts />
-
               <Customisation />
               <TradeSettings />
               <Session />
@@ -52,6 +52,30 @@ export default function Settings() {
     </Card>
   );
 }
+const Profile = () => {
+  return (
+    <div className="m-4 p-4">
+      <div className="flex flex-row  border">
+        <div className="flex w-1/5 text-lg">
+          <img src="https://placehold.co/200x200"></img>
+        </div>
+        <div className="flex w-4/5">
+          <ul className="w-full ">
+            <li className="m-4 text-2xl font-bold">Adil Khan</li>
+
+            <li className="flex flex-row m-4 text-xl text-muted-foreground">
+              Investor in FinTech, EdTech, HealthTech
+            </li>
+            <br />
+            <li className="m-4 text-base text-red-500">
+              $12,335.00 in last 30 days
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
 const Subscription = () => {
   return (
     <div className="flex flex-row  p-4">
