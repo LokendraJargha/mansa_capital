@@ -45,50 +45,47 @@ const columnData = [
 export default function Plan() {
   return (
     <>
-      <div className="flex" flex-col>
-        <Navbar />
-        <div className="flex flex-col">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="text-center">STRATEGY NAME</TableHead>
-                <TableHead className="text-center">CATEGORY</TableHead>
-                <TableHead className="text-center">ASSOCIATED SETUPS</TableHead>
-                <TableHead className="text-center">ALERT MECHANISM</TableHead>
-                <TableHead className="text-center">
-                  ALERTS PER MONTH PER INSTRUMENT
-                </TableHead>
+      <div className="flex flex-col">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-center">STRATEGY NAME</TableHead>
+              <TableHead className="text-center">CATEGORY</TableHead>
+              <TableHead className="text-center">ASSOCIATED SETUPS</TableHead>
+              <TableHead className="text-center">ALERT MECHANISM</TableHead>
+              <TableHead className="text-center">
+                ALERTS PER MONTH PER INSTRUMENT
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {columnData.map((item, index) => (
+              <TableRow key={index}>
+                <TableCell className="font-medium text-center">
+                  {item.strategyName}
+                </TableCell>
+                <TableCell className="text-center">{item.category}</TableCell>
+                <TableCell className="text-center">
+                  {item.associatedSetups.map((setup, index) => (
+                    <span key={index}>{setup} </span>
+                  ))}
+                </TableCell>
+                <TableCell className="text-center">
+                  {item.alertMechanism}
+                </TableCell>
+                <TableCell className="text-center">
+                  {item.alertsPerMonthPerInstrument}
+                </TableCell>
               </TableRow>
-            </TableHeader>
-            <TableBody>
-              {columnData.map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium text-center">
-                    {item.strategyName}
-                  </TableCell>
-                  <TableCell className="text-center">{item.category}</TableCell>
-                  <TableCell className="text-center">
-                    {item.associatedSetups.map((setup, index) => (
-                      <span key={index}>{setup} </span>
-                    ))}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {item.alertMechanism}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {item.alertsPerMonthPerInstrument}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-          <Button
-            variant="outline"
-            className="bg-gray-400 w-[20%] ml-2 hover:bg-black hover:text-white"
-          >
-            Add a New Strategy
-          </Button>
-        </div>
+            ))}
+          </TableBody>
+        </Table>
+        <Button
+          variant="outline"
+          className="bg-gray-400 w-[20%] ml-2 hover:bg-black hover:text-white"
+        >
+          Add a New Strategy
+        </Button>
       </div>
     </>
   );
