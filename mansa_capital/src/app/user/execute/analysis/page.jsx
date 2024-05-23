@@ -57,7 +57,7 @@ const columnData = [
 
 export default function setup() {
   return (
-    <div className="flex flex-col">
+    <div>
       <Table>
         <TableHeader>
           <TableRow>
@@ -86,7 +86,6 @@ export default function setup() {
           ))}
         </TableBody>
       </Table>
-         
     </div>
   );
 }

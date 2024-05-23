@@ -27,40 +27,46 @@ const Execute = () => {
   };
 
   return (
-    <>
+    <div className="flex">
       <Navbar />
-      <div className="flex justify-around bg-gray-100 p-4 mx-auto w-[50%]">
-        <button
-          onClick={() => handleTabClick("analysis")}
-          className={`p-2 ${
-            activeTab === "analysis"
-              ? "font-bold border-b-2 border-gray-800"
-              : ""
-          }`}
-        >
-          Analysis
-        </button>
-        <button
-          onClick={() => handleTabClick("ideas")}
-          className={`p-2 ${
-            activeTab === "ideas" ? "font-bold border-b-2 border-gray-800" : ""
-          }`}
-        >
-          Ideas
-        </button>
-        <button
-          onClick={() => handleTabClick("trades")}
-          className={`p-2 ${
-            activeTab === "trades" ? "font-bold border-b-2 border-gray-800" : ""
-          }`}
-        >
-          Trades
-        </button>
+      <div className="flex flex-col w-[100%]">
+        {/* <div className="flex justify-around bg-gray-100 p-4 mx-auto w-[50%]">
+          <button
+            onClick={() => handleTabClick("analysis")}
+            className={`p-2 ${
+              activeTab === "analysis"
+                ? "font-bold border-b-2 border-gray-800"
+                : ""
+            }`}
+          >
+            Analysis
+          </button>
+          <button
+            onClick={() => handleTabClick("ideas")}
+            className={`p-2 ${
+              activeTab === "ideas"
+                ? "font-bold border-b-2 border-gray-800"
+                : ""
+            }`}
+          >
+            Ideas
+          </button>
+          <button
+            onClick={() => handleTabClick("trades")}
+            className={`p-2 ${
+              activeTab === "trades"
+                ? "font-bold border-b-2 border-gray-800"
+                : ""
+            }`}
+          >
+            Trades
+          </button>
+        </div> */}
+        <div className="p-4 bg-white border border-gray-300 mt-4 w-100%">
+          {renderContent()}
+        </div>
       </div>
-      <div className="p-4 bg-white border border-gray-300 mt-4">
-        {renderContent()}
-      </div>
-    </>
+    </div>
   );
 };
 
