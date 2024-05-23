@@ -21,35 +21,36 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import PasswordInput from "@/components/ui/password";
+import Navbar from "@/components/ui/navbar";
+import Footer from "@/components/ui/footer";
 
 export default function Settings() {
   return (
-    <Card>
-      <CardHeader></CardHeader>
-      <CardContent className="space-y-2">
+    <>
+      <Navbar />
+      <div>
         <div>
-          <div>
-            <div className="space-y-1 w-full ">
-              <Profile />
-              <Subscription />
-              <Accounts />
-              <Customisation />
-              <TradeSettings />
-              <Session />
-              <Probablity />
-              <Privacy />
-              <Data />
-              <Performance />
-              <Instruments />
-              <Pullbacks />
-              <Tags />
-              <Education />
-              <History />
-            </div>
+          <div className="space-y-1 w-full ">
+            <Profile />
+            <Subscription />
+            <Accounts />
+            <Customisation />
+            <TradeSettings />
+            <Session />
+            <Probablity />
+            <Privacy />
+            <Data />
+            <Performance />
+            <Instruments />
+            <Pullbacks />
+            <Tags />
+            <Education />
+            <History />
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+      <Footer />
+    </>
   );
 }
 const Profile = () => {
