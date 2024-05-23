@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Eye, EyeOff } from "lucide-react";
 
-export default function PasswordInput() {
+export default function PasswordInput({ ...props }) {
   const [showPassword, setShowPassword] = useState(false);
   const [activePasswordInput, setActivePasswordInput] = useState(false);
   const togglePasswordVisibility = () => {
@@ -17,11 +17,12 @@ export default function PasswordInput() {
       }`}
     >
       <input
-        id="password"
+        {...props}
         onFocus={() => setActivePasswordInput(true)}
         onBlur={() => setActivePasswordInput(false)}
         className="border-none outline-none w-full"
         type={showPassword ? "text" : "password"}
+        required="true"
       />
       <button type="button" onClick={togglePasswordVisibility}>
         {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
