@@ -55,7 +55,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen bg-zinc-900 text-white">
+    <div className="flex flex-col h-screen bg-zinc-900 text-white overflow-y-auto">
       <div className="flex items-center justify-center h-16 bg-zinc-800">
         <img
           src="https://placehold.co/30x30"
