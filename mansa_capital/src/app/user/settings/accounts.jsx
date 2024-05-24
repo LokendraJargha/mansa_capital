@@ -60,14 +60,14 @@ const Accounts = () => {
               </Label>
               <div className="flex flex-col w-full">
                 <Input
-                  className=""
+                  className={`${errors.accountno ? "border-red-500" : ""}`}
                   id="accountno"
                   {...register("accountno", {
                     required: "Account No is required",
                   })}
                 />
                 {errors.accountno && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.accountno.message}
                   </span>
                 )}
@@ -82,9 +82,9 @@ const Accounts = () => {
               </Label>
               <div className="flex flex-col w-full">
                 <div
-                  className={`flex h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                    activePasswordInput && "ring-2 ring-ring ring-offset-2"
-                  }`}
+                  className={`flex h-10 rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                    activePasswordInput ? "ring-2 ring-ring ring-offset-2" : ""
+                  } ${errors.password ? "border-red-500" : ""}`}
                 >
                   <input
                     id="password"
@@ -97,12 +97,12 @@ const Accounts = () => {
                   <button type="button" onClick={togglePasswordVisibility}>
                     {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                   </button>
-                  {errors.password && (
-                    <span className="text-red-500">
-                      {errors.password.message}
-                    </span>
-                  )}
                 </div>
+                {errors.password && (
+                  <span className="text-xs text-red-500">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="flex flex-row">
@@ -115,12 +115,13 @@ const Accounts = () => {
               <div className="flex flex-col w-full">
                 <Input
                   id="accounttype"
+                  className={`${errors.accounttype ? "border-red-500" : ""}`}
                   {...register("accounttype", {
                     required: "Account Type is required",
                   })}
                 />
                 {errors.accounttype && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.accounttype.message}
                   </span>
                 )}
@@ -136,12 +137,13 @@ const Accounts = () => {
               <div className="flex flex-col w-full">
                 <Input
                   id="leverage"
+                  className={`${errors.leverage ? "border-red-500" : ""}`}
                   {...register("leverage", {
                     required: "Leverage is required",
                   })}
                 />
                 {errors.leverage && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.leverage.message}
                   </span>
                 )}
@@ -157,7 +159,9 @@ const Accounts = () => {
               <div className="flex flex-col w-full">
                 <select
                   id="entryMethod"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className={`w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                    errors.entryMethod ? "border-red-500" : ""
+                  }`}
                   {...register("entryMethod", {
                     required: "Trade Entry Method is required",
                   })}
@@ -167,7 +171,7 @@ const Accounts = () => {
                   <option value="auto">Auto</option>
                 </select>
                 {errors.entryMethod && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.entryMethod.message}
                   </span>
                 )}
@@ -183,14 +187,14 @@ const Accounts = () => {
 
               <div className="flex flex-col w-full">
                 <Input
-                  className="w-full"
                   id="tradeSize"
+                  className={`${errors.tradeSize ? "border-red-500" : ""}`}
                   {...register("tradeSize", {
                     required: "Trade Size is required",
                   })}
                 />
                 {errors.tradeSize && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.tradeSize.message}
                   </span>
                 )}
@@ -261,7 +265,9 @@ const Accounts = () => {
               <div className="flex flex-col w-full">
                 <select
                   id="tradingStyle"
-                  className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  className={`w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                    errors.tradingStyle ? "border-red-500" : ""
+                  }`}
                   {...register("tradingStyle", {
                     required: "Trading style is required",
                   })}
@@ -272,7 +278,7 @@ const Accounts = () => {
                   <option value="investor">Investor</option>
                 </select>
                 {errors.tradingStyle && (
-                  <span className="text-red-500">
+                  <span className="text-xs text-red-500">
                     {errors.tradingStyle.message}
                   </span>
                 )}
@@ -287,19 +293,21 @@ const Accounts = () => {
               </Label>
               <div className="flex flex-col w-full">
                 <Input
-                  className="w-full"
+                  className={`w-full ${errors.csv ? "border-red-500" : ""}`}
                   id="csv"
                   type="file"
                   {...register("csv", { required: "CSV file is required" })}
                 />
                 {errors.csv && (
-                  <span className="text-red-500">{errors.csv.message}</span>
+                  <span className="text-xs text-red-500">
+                    {errors.csv.message}
+                  </span>
                 )}
               </div>
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="flex justify-between" type="submit">
+            <Button className="flex" type="submit">
               Submit
             </Button>
           </CardFooter>

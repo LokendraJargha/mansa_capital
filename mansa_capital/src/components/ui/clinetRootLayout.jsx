@@ -20,13 +20,14 @@ const ClientRootLayout = ({ children }) => {
         </div>
         <div className="w-[80%]">
           <Header />
-          <div className="p-4">
+          <div className="p-4 flex-1 min-h-[600px]">
             {/* {submenuContent === "Results" && <div>Results Content</div>}*/}
             {children}
           </div>
+
+          <Footer />
         </div>
       </div>
-      <Footer />
     </>
   );
 };

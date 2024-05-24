@@ -20,7 +20,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import PasswordInput from "@/components/ui/password";
 import Profile from "./profile";
 import Subscription from "./subscription";
 import Accounts from "./accounts";

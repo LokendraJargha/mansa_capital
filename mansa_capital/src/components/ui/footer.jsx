@@ -7,10 +7,10 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-orange-100 p-4 text-white">
+      <footer className="bg-black p-4 text-white">
         <ul className="flex justify-around">
           <li className="mx-4">
-            <p className="text-orange-300 font-bold">©MANSA CAPITAL 2023</p>
+            <p className="text-white font-bold">©MANSA CAPITAL 2023</p>
             <p className="text-u underline text-blue-500 text-sm">
               email us: support@mansa-capital.com
             </p>

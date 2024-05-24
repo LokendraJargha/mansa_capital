@@ -17,7 +17,6 @@ import { Eye, EyeOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-// import PasswordInput from "@/components/ui/password";
 
 export default function Login() {
   const router = useRouter();
@@ -62,15 +61,20 @@ export default function Login() {
                   message: "Invalid email address",
                 },
               })}
+              className={`${errors.email ? "border-red-500" : "border-input"}`}
             />
             {errors.email && (
-              <span className="text-red-500">{errors.email.message}</span>
+              <span className="text-sm text-red-500">
+                {errors.email.message}
+              </span>
             )}
           </div>
           <div className="space-y-1">
             <Label htmlFor="password">PASSWORD</Label>
             <div
-              className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+              className={`flex h-10 w-full rounded-md border ${
+                errors.password ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
                 activePasswordInput && "ring-2 ring-ring ring-offset-2"
               }`}
             >
@@ -85,10 +89,12 @@ export default function Login() {
               <button type="button" onClick={togglePasswordVisibility}>
                 {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
-              {errors.password && (
-                <span className="text-red-500">{errors.password.message}</span>
-              )}
             </div>
+            {errors.password && (
+              <span className="text-sm text-red-500">
+                {errors.password.message}
+              </span>
+            )}
           </div>
         </CardContent>
         <div className="flex items-center px-6 pb-3 space-x-2">

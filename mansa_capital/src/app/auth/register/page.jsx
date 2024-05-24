@@ -41,8 +41,8 @@ export default function Register() {
       console.log(data);
       router.push("/auth/login");
     } catch (error) {
-      toast.error("Something went Wrong from Backend");
-      console.log("Error Occured ", error);
+      toast.error("Something went wrong from Backend");
+      console.log("Error occurred ", error);
     }
   };
 
@@ -67,9 +67,12 @@ export default function Register() {
                   message: "Invalid first name",
                 },
               })}
+              className={errors.firstName ? "border-red-500" : "border-input"}
             />
             {errors.firstName && (
-              <span className="text-red-500">{errors.firstName.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.firstName.message}
+              </span>
             )}
           </div>
           <div className="space-y-1">
@@ -84,9 +87,12 @@ export default function Register() {
                   message: "Invalid last name",
                 },
               })}
+              className={errors.lastName ? "border-red-500" : "border-input"}
             />
             {errors.lastName && (
-              <span className="text-red-500">{errors.lastName.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.lastName.message}
+              </span>
             )}
           </div>
           <div className="space-y-1">
@@ -101,15 +107,20 @@ export default function Register() {
                   message: "Invalid email address",
                 },
               })}
+              className={errors.email ? "border-red-500" : "border-input"}
             />
             {errors.email && (
-              <span className="text-red-500">{errors.email.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.email.message}
+              </span>
             )}
           </div>
           <div className="space-y-1">
             <Label htmlFor="password">PASSWORD</Label>
             <div
-              className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+              className={`flex h-10 w-full rounded-md border ${
+                errors.password ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
                 showPassword && "ring-2 ring-ring ring-offset-2"
               }`}
             >
@@ -126,13 +137,17 @@ export default function Register() {
               </button>
             </div>
             {errors.password && (
-              <span className="text-red-500">{errors.password.message}</span>
+              <span className="text-red-500 text-sm">
+                {errors.password.message}
+              </span>
             )}
           </div>
           <div className="space-y-1">
             <Label htmlFor="confirmPassword">CONFIRM PASSWORD</Label>
             <div
-              className={`flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+              className={`flex h-10 w-full rounded-md border ${
+                errors.confirmPassword ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
                 showConfirmPassword && "ring-2 ring-ring ring-offset-2"
               }`}
             >
@@ -151,7 +166,7 @@ export default function Register() {
               </button>
             </div>
             {errors.confirmPassword && (
-              <span className="text-red-500">
+              <span className="text-red-500 text-sm">
                 {errors.confirmPassword.message}
               </span>
             )}
@@ -175,7 +190,9 @@ export default function Register() {
             ></label>
           </div>
           {errors.terms && (
-            <span className="text-red-500 mx-6">{errors.terms.message}</span>
+            <span className="text-red-500 text-sm mx-6">
+              {errors.terms.message}
+            </span>
           )}
         </CardContent>
 
