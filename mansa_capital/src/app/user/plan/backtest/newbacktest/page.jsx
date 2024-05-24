@@ -51,7 +51,7 @@ export default function NewBacktest() {
               <p>USD</p>
               <input
                 type="number"
-                className="outline-none"
+                className="flex w-full outline-none"
                 placeholder="0.00"
                 {...register("accountBalance", {
                   required: "Account balance is required",

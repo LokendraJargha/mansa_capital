@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/table";
 import PerformanceChart from "./PerformanceChart";
 import PerformanceTable from "./PerformanceTable";
-import SpiderGraph from "./SpiderGraph";
+// import SpiderGraph from "./SpiderGraph";
 
 export default function Review() {
   return (
@@ -69,11 +69,12 @@ export default function Review() {
           value={`1) \n 2) \n 3) `}
         />
       </div>
+
       <div className="w-1/2">
         <PerformanceChart />
       </div>
       <PerformanceTable />
-      <SpiderGraph />
+      {/* <SpiderGraph /> */}
       <WeeklyReflection />
     </div>
   );
