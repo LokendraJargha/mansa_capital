@@ -70,7 +70,7 @@ const Sidebar = () => {
           <ul className="mt-2 flex flex-col gap-2">
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 rounded-lg cursor-pointer ${
+                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
                   activeMenu === "Review" ? "bg-gray-700" : ""
                 }`}
                 onClick={() => handleMenuClick("Review")}
@@ -118,7 +118,7 @@ const Sidebar = () => {
             </li>
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 rounded-lg cursor-pointer ${
+                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
                   activeMenu === "Plan" ? "bg-gray-700" : ""
                 }`}
                 onClick={() => handleMenuClick("Plan")}
@@ -164,7 +164,7 @@ const Sidebar = () => {
             </li>
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 rounded-lg cursor-pointer ${
+                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
                   activeMenu === "Execute" ? "bg-gray-700" : ""
                 }`}
                 onClick={() => handleMenuClick("Execute")}
