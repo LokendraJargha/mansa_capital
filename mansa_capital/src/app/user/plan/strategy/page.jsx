@@ -9,7 +9,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/ui/navbar";
 
 const columnData = [
   {
@@ -42,7 +41,7 @@ const columnData = [
   },
 ];
 
-export default function Plan() {
+export default function Strategy() {
   return (
     <>
       <div className="flex flex-col">
