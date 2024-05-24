@@ -35,7 +35,7 @@ export default function Login() {
   const onSubmit = async (data) => {
     try {
       console.log(data);
-      await router.push("/user/payment");
+      await router.push("/user/settings");
     } catch (error) {
       toast.error("Something went Wrong from Backend");
       console.log("Error Occured ", error);
