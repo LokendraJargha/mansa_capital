@@ -1,7 +1,29 @@
 "use client";
 import React from "react";
+import { useState, useEffect, useRef } from "react";
+import DropdownMenu from "./dropdownButton";
 
 const Header = () => {
+  const [showDropdownMenu, setShowDropdownMenu] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleDropdownMenuClick = () => {
+    setShowDropdownMenu((prevState) => !prevState);
+  };
+
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setShowDropdownMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <div className="flex items-center justify-between p-4 bg-white dark:bg-zinc-800 shadow-md">
       <div className="flex items-center space-x-4">
@@ -56,7 +78,12 @@ const Header = () => {
           </svg>
           <span className="absolute top-0 right-0 block h-2 w-2 bg-red-600 rounded-full ring-2 ring-white dark:ring-zinc-800"></span>
         </button> */}
-        <div className="flex items-center space-x-2">
+        {/* Dropdown Button Opener */}
+        <div
+          className="flex items-center space-x-2 cursor-pointer"
+          onClick={() => handleDropdownMenuClick()}
+          ref={dropdownRef}
+        >
           <img
             src="https://placehold.co/40x40"
             alt="Profile"
@@ -83,6 +110,7 @@ const Header = () => {
           </svg>
         </div>
       </div>
+      {showDropdownMenu && <DropdownMenu />}
     </div>
   );
 };
