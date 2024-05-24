@@ -149,7 +149,14 @@ const Navbar = ({ setActiveTab }) => {
           </ul>
         </li>
         <li>
-          <span className="mb-4 p-2 cursor-pointer rounded px-3">Execute</span>
+          <span
+            className={`mb-4 p-2 cursor-pointer rounded px-3 ${
+              isActive("/user/plan") ? "bg-white text-black" : ""
+            }`}
+            onClick={() => handleClick("/user/execute/", "analysis")}
+          >
+            Execute
+          </span>
           <ul className="ml-4">
             <li
               className={getLiClassName("/user/execute/analysis")}
