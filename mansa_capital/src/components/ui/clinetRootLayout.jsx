@@ -25,7 +25,7 @@ const ClientRootLayout = ({ children }) => {
             {children}
           </div>
 
-          <Footer />
+          <Footer className="bottom-0 fixed" />
         </div>
       </div>
     </>

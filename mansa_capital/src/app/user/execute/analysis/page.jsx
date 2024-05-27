@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
+console.log(process.env.MONGO_URI);
 const columnData = [
   {
     instrument: "EURUSD",
