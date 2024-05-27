@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-
 export default function Calendar() {
   function convertToMultiDimensional(arr) {
     //chatgpt
@@ -44,7 +43,7 @@ export default function Calendar() {
       <table>
         <tr className="w-full">
           {days.map((item) => {
-            return <td className="border p-6">{item}</td>;
+            return <td className="border p-3">{item}</td>;
           })}
         </tr>
 
@@ -52,7 +51,7 @@ export default function Calendar() {
           return (
             <tr className="w-full">
               {item.map((item) => {
-                return <td className="border p-6">{item}</td>;
+                return <td className="border p-3">{item}</td>;
               })}
             </tr>
           );

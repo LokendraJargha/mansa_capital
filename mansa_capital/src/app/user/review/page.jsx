@@ -15,31 +15,11 @@ import PerformanceTable from "./PerformanceTable";
 export default function Review() {
   return (
     <div className="text-muted-foreground text-sm flex flex-col gap-2">
-      <div>Good morning , Adil Khan</div>
-      <div className="w-full flex justify-end gap-2">
-        <li>$</li>
-        <li>Advanced Filters</li>
-        <li>Date Range</li>
-        <li>All Accounts</li>
-        <li>All Strategies</li>
-        <li>All Setups</li>
-      </div>
 
-      <div className="data flex gap-2 w-full">
-        <Box key_={"Total Profit"} value={12345} />
-        <Box key_="Total Loss" value={4567} />
-        <Box key_="Total Trades" value={1234} />
-        <Box key_="Total Trades" value={1234} />
-        <Box key_="Total Trades" value={1234} />
-      </div>
 
       <div className="w-full flex gap-2">
-        <div className="w-1/2 border h-72">
-          <Chart />{" "}
-        </div>
-        <div className="w-1/2 border h-72">
-          <Calendar />
-        </div>
+
+
       </div>
       <ThreeTabs />
 
@@ -80,32 +60,9 @@ export default function Review() {
   );
 }
 
-const Box = ({ key_, value }) => {
-  return (
-    <div className="flex flex-col p-3 text-center bg-muted">
-      <p>{key_}</p>
-      <p className="text-primary font-bold"> {value} </p>
-    </div>
-  );
-};
-const Chart = () => {
-  return (
-    <iframe
-      className="w-full h-full"
-      src="https://sslcharts.investing.com/index.php?force_lang=1&pair_ID=1&timescale=300&candles=50&style=candles"
-    ></iframe>
-  );
-};
-const Calendar = () => {
-  return (
-    <iframe
-      src="https://calendar.google.com/calendar/embed?src=addressbook%23contacts%40group.v.calendar.google.com&ctz=Asia%2FKathmandu"
-      className="h-full w-full"
-      frameborder="0"
-    ></iframe>
-  );
-};
 
+
+WWW
 const ThreeTabs = () => {
   return (
     <div className="flex gap-12 text-primary">
