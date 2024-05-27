@@ -40,18 +40,23 @@ export default function NewBacktest() {
       </CardHeader>
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent className="space-y-2">
-          <div className="space-y-1 mr-4 py-2 ">
+          <div className="space-y-1 mr-4 ">
             <Label
               className="text-muted-foreground mr-4"
               htmlFor="accountBalance"
             >
               ACCOUNT BALANCE
             </Label>
-            <div className="flex gap-3 border p-2">
+            <div
+              className={`flex w-full gap-3 border rounded-md p-2 outline-none ${
+                errors.accountBalance ? "border-red-500" : ""
+              }`}
+            >
               <p>USD</p>
               <input
-                type="number"
-                className="flex w-full outline-none"
+                className={`flex w-full outline-none ${
+                  errors.accountBalance ? "border-red-500" : ""
+                }`}
                 placeholder="0.00"
                 {...register("accountBalance", {
                   required: "Account balance is required",
@@ -63,18 +68,20 @@ export default function NewBacktest() {
               />
             </div>
             {errors.accountBalance && (
-              <span className="text-red-500">
+              <span className="text-red-500 text-xs">
                 {errors.accountBalance.message}
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4 py-2">
+          <div className="space-y-1 mr-4 ">
             <Label className="text-muted-foreground mr-4" htmlFor="pairs">
               PAIRS
             </Label>
             <select
               id="pairs"
-              className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              className={`w-full rounded-md border ${
+                errors.pairs ? "border-red-500" : "border-input"
+              } bg-background px-3 py-2.5 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
               {...register("pairs", { required: "Pair is required" })}
             >
               <option value="">Select a pair</option>
@@ -82,17 +89,16 @@ export default function NewBacktest() {
               <option value="gbpusd">GBP USD</option>
               <option value="us500">US 500</option>
             </select>
-            {errors.pairs && (
-              <span className="text-red-500">{errors.pairs.message}</span>
-            )}
           </div>
 
-          <div className="space-y-1 mr-4 py-2">
+          <div className="space-y-1 mr-4">
             <Label className="text-muted-foreground mr-4" htmlFor="startDate">
               START DATE
             </Label>
             <Input
-              className="text-right"
+              className={`flex w-full outline-none ${
+                errors.startDate ? "border-red-500" : ""
+              }`}
               id="startDate"
               type="date"
               {...register("startDate", {
@@ -103,15 +109,19 @@ export default function NewBacktest() {
               })}
             />
             {errors.startDate && (
-              <span className="text-red-500">{errors.startDate.message}</span>
+              <span className="text-red-500 text-xs">
+                {errors.startDate.message}
+              </span>
             )}
           </div>
-          <div className="space-y-1 mr-4 py-2">
+          <div className="space-y-1 mr-4">
             <Label className="text-muted-foreground mr-4" htmlFor="endDate">
               END DATE
             </Label>
             <Input
-              className="text-right"
+              className={`flex w-full outline-none ${
+                errors.endDate ? "border-red-500" : ""
+              }`}
               id="endDate"
               type="date"
               {...register("endDate", {
@@ -123,25 +133,47 @@ export default function NewBacktest() {
               })}
             />
             {errors.endDate && (
-              <span className="text-red-500">{errors.endDate.message}</span>
+              <span className="text-red-500 text-xs">
+                {errors.endDate.message}
+              </span>
             )}
           </div>
-          <div className="space-y-1 mr-4 py-2">
+          <div className="space-y-1 mr-4">
+            <Label className="text-muted-foreground mr-4" htmlFor="strategy">
+              STRATEGY
+            </Label>
+            <Input
+              className={`flex w-full outline-none ${
+                errors.endDate ? "border-red-500" : ""
+              }`}
+              id="strategy"
+              type="text"
+              {...register("strategy", {
+                required: "End date is required",
+              })}
+            />
+            {errors.sessionName && (
+              <span className="text-red-500 text-xs">
+                {errors.strategy.message}
+              </span>
+            )}
+          </div>
+          <div className="space-y-1 mr-4">
             <Label className="text-muted-foreground mr-4" htmlFor="sessionName">
               Name of Session
             </Label>
             <Input
               id="sessionName"
               type="text"
-              {...register("sessionName", {
-                required: "Session name is required",
-              })}
+              {...register("sessionName", {})}
             />
             {errors.sessionName && (
-              <span className="text-red-500">{errors.sessionName.message}</span>
+              <span className="text-red-500 text-xs">
+                {errors.sessionName.message}
+              </span>
             )}
           </div>
-          <div className="space-y-1 mr-4 py-2">
+          <div className="space-y-1 mr-4">
             <label className="text-muted-foreground mr-4" htmlFor="description">
               Description (optional)
             </label>

@@ -2,15 +2,6 @@
 import { useForm } from "react-hook-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-} from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 
 const Customisation = () => {
@@ -33,7 +24,7 @@ const Customisation = () => {
             <CardContent className="space-y-2 my-4 py-4">
               <div className="flex flex-row">
                 <Label
-                  className="w-1/3 text-sm text-muted-foreground  mr-4"
+                  className="w-1/3 text-sm text-muted-foreground mr-4"
                   htmlFor="screenMode"
                 >
                   Screen Mode:
@@ -41,7 +32,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="screenMode"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.screenMode ? "border-red-500" : ""
+                    }`}
                     {...register("screenMode", {
                       required: "Screen Mode is required",
                     })}
@@ -51,7 +44,7 @@ const Customisation = () => {
                     <option value="light">Light</option>
                   </select>
                   {errors.screenMode && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.screenMode.message}
                     </span>
                   )}
@@ -67,7 +60,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="baseTimezone"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.baseTimezone ? "border-red-500" : ""
+                    }`}
                     {...register("baseTimezone", {
                       required: "Base Timezone is required",
                     })}
@@ -77,7 +72,7 @@ const Customisation = () => {
                     <option value="eastern">Eastern</option>
                   </select>
                   {errors.baseTimezone && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.baseTimezone.message}
                     </span>
                   )}
@@ -93,7 +88,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="baseCurrency"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.baseCurrency ? "border-red-500" : ""
+                    }`}
                     {...register("baseCurrency", {
                       required: "Base Currency is required",
                     })}
@@ -104,7 +101,7 @@ const Customisation = () => {
                     <option value="euro">Euro</option>
                   </select>
                   {errors.baseCurrency && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.baseCurrency.message}
                     </span>
                   )}
@@ -120,7 +117,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="dateFormat"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.dateFormat ? "border-red-500" : ""
+                    }`}
                     {...register("dateFormat", {
                       required: "Date Format is required",
                     })}
@@ -131,7 +130,7 @@ const Customisation = () => {
                     <option value="ymd">yyyy/mm/dd</option>
                   </select>
                   {errors.dateFormat && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.dateFormat.message}
                     </span>
                   )}
@@ -147,7 +146,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="language"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.language ? "border-red-500" : ""
+                    }`}
                     {...register("language", {
                       required: "Language is required",
                     })}
@@ -158,7 +159,7 @@ const Customisation = () => {
                     <option value="french">French</option>
                   </select>
                   {errors.language && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.language.message}
                     </span>
                   )}
@@ -174,7 +175,9 @@ const Customisation = () => {
                 <div className="flex flex-col w-full">
                   <select
                     id="fontSize"
-                    className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                    className={`w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      errors.fontSize ? "border-red-500" : ""
+                    }`}
                     {...register("fontSize", {
                       required: "Font Size is required",
                     })}
@@ -185,7 +188,7 @@ const Customisation = () => {
                     <option value="large">Large</option>
                   </select>
                   {errors.fontSize && (
-                    <span className="text-red-500">
+                    <span className="text-red-500 text-xs">
                       {errors.fontSize.message}
                     </span>
                   )}
