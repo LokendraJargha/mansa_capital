@@ -71,7 +71,7 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
         <Card>
           <CardHeader></CardHeader>
           <CardContent className="space-y-2">
-            <div className="space-y-1 mr-4 py-2">
+            <div className="space-y-1">
               <Label
                 className="text-muted-foreground mr-4"
                 htmlFor="pricePerMonth"
@@ -80,7 +80,9 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
               </Label>
               <select
                 id="pricePerMonth"
-                className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                className={`w-full rounded-md border ${
+                  errors.pricePerMonth ? "border-red-500" : "border-input"
+                } bg-background px-3 py-2.5 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
                 {...register("pricePerMonth", {
                   required: "Price per month is required",
                 })}
@@ -90,17 +92,21 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 <option value="usd200">USD 200</option>
               </select>
               {errors.pricePerMonth && (
-                <span className="text-red-500">
+                <span className="text-xs text-red-500">
                   {errors.pricePerMonth.message}
                 </span>
               )}
             </div>
             <div className="space-y-1">
-              <Label htmlFor="firstName">FIRST NAME</Label>
+              <Label className="text-muted-foreground mr-4" htmlFor="firstName">
+                FIRST NAME
+              </Label>
               <Input
+                className={`flex w-full outline-none ${
+                  errors.firstName ? "border-red-500" : ""
+                }`}
                 id="firstName"
                 type="text"
-                className="focus:outline-none focus:ring-2 focus:ring-blue-500"
                 {...register("firstName", {
                   required: "First name is required",
                   pattern: {
@@ -110,15 +116,21 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 })}
               />
               {errors.firstName && (
-                <span className="text-red-500">{errors.firstName.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.firstName.message}
+                </span>
               )}
             </div>
             <div className="space-y-1">
-              <Label htmlFor="lastName">LAST NAME</Label>
+              <Label className="text-muted-foreground mr-4" htmlFor="lastName">
+                LAST NAME
+              </Label>
               <Input
                 id="lastName"
                 type="text"
-                className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`flex w-full outline-none ${
+                  errors.lastName ? "border-red-500" : ""
+                }`}
                 {...register("lastName", {
                   required: "Last name is required",
                   pattern: {
@@ -128,15 +140,21 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 })}
               />
               {errors.lastName && (
-                <span className="text-red-500">{errors.lastName.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.lastName.message}
+                </span>
               )}
             </div>
             <div className="space-y-1">
-              <Label htmlFor="email">EMAIL</Label>
+              <Label className="text-muted-foreground mr-4" htmlFor="email">
+                EMAIL
+              </Label>
               <Input
                 id="email"
                 type="email"
-                className="focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`flex w-full outline-none ${
+                  errors.firstName ? "border-red-500" : ""
+                }`}
                 {...register("email", {
                   required: "Email is required",
                   pattern: {
@@ -146,10 +164,12 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 })}
               />
               {errors.email && (
-                <span className="text-red-500">{errors.email.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.email.message}
+                </span>
               )}
             </div>
-            <div className="space-y-1 mr-4 py-2">
+            <div className="space-y-1">
               <Label
                 className="text-muted-foreground mr-4"
                 htmlFor="creditCardNumber"
@@ -157,18 +177,20 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 CREDIT CARD NUMBER
               </Label>
               <CreditCardInput
-                className="text-right focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`flex w-full outline-none ${
+                  errors.creditCardNumber ? "border-red-500" : ""
+                }`}
                 {...register("creditCardNumber", {
                   required: "Credit Card Number is required",
                 })}
               />
               {errors.creditCardNumber && (
-                <span className="text-red-500">
+                <span className="text-red-500 text-xs">
                   {errors.creditCardNumber.message}
                 </span>
               )}
             </div>
-            <div className="space-y-1 mr-4 py-2">
+            <div className="space-y-1">
               <Label
                 className="text-muted-foreground mr-4"
                 htmlFor="expiryDate"
@@ -176,7 +198,9 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 EXPIRY DATE
               </Label>
               <Input
-                className="text-right focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`flex w-full outline-none ${
+                  errors.expiryDate ? "border-red-500" : ""
+                }`}
                 id="expirydate"
                 type="date"
                 {...register("expiryDate", {
@@ -184,23 +208,27 @@ const PaymentForm = ({ onSubmit, errors, register }) => {
                 })}
               />
               {errors.expiryDate && (
-                <span className="text-red-500">
+                <span className="text-red-500 text-xs">
                   {errors.expiryDate.message}
                 </span>
               )}
             </div>
-            <div className="space-y-1 mr-4 py-2">
+            <div className="space-y-1">
               <Label className="text-muted-foreground mr-4" htmlFor="cvc">
                 CVC
               </Label>
               <Input
-                className="text-right focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className={`flex w-full outline-none ${
+                  errors.firstName ? "border-red-500" : ""
+                }`}
                 id="cvc"
                 type="number"
                 {...register("cvc", { required: "CVC is required" })}
               />
               {errors.cvc && (
-                <span className="text-red-500">{errors.cvc.message}</span>
+                <span className="text-red-500 text-xs">
+                  {errors.cvc.message}
+                </span>
               )}
             </div>
           </CardContent>
