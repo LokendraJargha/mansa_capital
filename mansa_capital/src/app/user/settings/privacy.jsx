@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -9,8 +10,20 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Privacy = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [activePasswordInput, setActivePasswordInput] = useState(false);
   const {
@@ -18,12 +31,12 @@ const Privacy = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const router = useRouter();
 
   const onSubmit = async (data) => {
     try {
       console.log(data);
       await router.push("/user/settings");
+      setIsDialogOpen(true);
     } catch (error) {
       toast.error("Something went Wrong from Backend");
       console.log("Error Occurred ", error);
@@ -129,10 +142,33 @@ const Privacy = () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button type="submit">LOGIN</Button>
+              <Button type="submit">Submit</Button>
             </CardFooter>
           </form>
         </Card>
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle>Share link</DialogTitle>
+              <DialogDescription>
+                Are you sure you want to change the password?
+              </DialogDescription>
+            </DialogHeader>
+
+            <DialogFooter className="sm:justify-start">
+              <DialogClose asChild>
+                <Button type="button" variant="secondary">
+                  Yes
+                </Button>
+              </DialogClose>
+              <DialogClose asChild>
+                <Button type="button" variant="secondary">
+                  No
+                </Button>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );
