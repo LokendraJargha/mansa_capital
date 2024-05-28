@@ -1,34 +1,26 @@
 "use client";
-import { useState } from "react";
 import Header from "@/components/ui/header";
 import Sidebar from "@/components/ui/sidebar";
 import Footer from "@/components/ui/footer";
 
 const ClientRootLayout = ({ children }) => {
-  //   const [submenuContent, setSubmenuContent] = useState(null);
-
-  //   const handleSubmenuClick = (submenu) => {
-  //     setSubmenuContent(submenu);
-  //   };
-
   return (
-    <>
-      <div className="flex">
-        <div className="w-[20%]">
-          {/* <Sidebar onSubmenuClick={handleSubmenuClick} /> */}
+    <div className="flex flex-col h-screen">
+      <div className="fixed w-full top-0 z-10">
+        <Header />
+      </div>
+      <div className="flex flex-row flex-1 pt-16">
+        <div className="w-[20%] h-full fixed top-16">
           <Sidebar />
         </div>
-        <div className="w-[80%]">
-          <Header />
-          <div className="p-4 flex-1 min-h-[600px]">
-            {/* {submenuContent === "Results" && <div>Results Content</div>}*/}
+        <div className="flex flex-col flex-1">
+          <div className="w-[80%] ml-[20%] overflow-y-auto p-4">
             {children}
+            <Footer />
           </div>
-
-          <Footer className="bottom-0 fixed" />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
