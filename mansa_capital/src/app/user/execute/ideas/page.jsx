@@ -30,22 +30,41 @@ export default function setup() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">INSTRUMENT</TableHead>
-            <TableHead className="text-center">TIME</TableHead>
-            <TableHead className="text-center">STRATEGY</TableHead>
-            <TableHead className="text-center">TREND</TableHead>
-            <TableHead className="text-center">
+            <TableHead className="text-center bg-zinc-800 text-white">
+              INSTRUMENT
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              TIME
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              STRATEGY
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              TREND
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
               S.LENGTH (TIME & PRICE)
             </TableHead>
-            <TableHead className="text-center">WAVE COUNT</TableHead>
-            <TableHead className="text-center">POINT OF INTERESTS</TableHead>
-            <TableHead className="text-center">NOTES</TableHead>
-            <TableHead className="text-center">ACTION</TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              WAVE COUNT
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              POINT OF INTERESTS
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              NOTES
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              ACTION
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {columnData.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow
+              key={index}
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+            >
               <TableCell className="font-medium text-center">
                 {item.instrument}
               </TableCell>

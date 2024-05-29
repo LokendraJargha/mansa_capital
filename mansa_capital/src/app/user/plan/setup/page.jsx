@@ -47,18 +47,29 @@ export default function setup() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">SETUP NAME</TableHead>
-            <TableHead className="text-center">CATEGORY</TableHead>
-            <TableHead className="text-center">LOGIC</TableHead>
-            <TableHead className="text-center">ALERT MECHANISM</TableHead>
-            <TableHead className="text-center">
+            <TableHead className="text-center bg-zinc-800 text-white">
+              SETUP NAME
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              CATEGORY
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              LOGIC
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              ALERT MECHANISM
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
               ALERTS PER MONTH PER INSTRUMENT
             </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {columnData.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow
+              key={index}
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+            >
               <TableCell className="font-medium text-center">
                 {item.setupName}
               </TableCell>
@@ -74,7 +85,6 @@ export default function setup() {
           ))}
         </TableBody>
       </Table>
-         
     </div>
   );
 }

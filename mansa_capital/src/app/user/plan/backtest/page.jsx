@@ -1,14 +1,16 @@
+"use client";
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import OpenedClosedTradesUI from "@/components/ui/openedClosedTradesUI";
+import { useRouter } from "next/navigation";
 
 const columnData = [
   {
@@ -46,26 +48,194 @@ const columnData = [
   },
 ];
 
-export default function setup() {
+// Replace with your actual data
+const tradeData = [
+  {
+    tradeNo: "1.270823",
+    pair: "GOLD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model A + Model EM + Model Mgmt",
+    risk_reward: "8.8",
+    status: "WIN",
+    lot_size: "3 Contracts",
+    opened: "270823, 12:15PM GMT",
+    closed: "In Progress",
+    time_in_trade: "In Progress",
+    stoploss_size: "5 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "REVIEWED / NOT REVIEWED",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model C",
+    risk_reward: "24",
+    status: "BREAKEVEN",
+    lot_size: "5 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 13:33 PM GMT",
+    time_in_trade: "1 HOUR 18 MINS",
+    stoploss_size: "2.5 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+  {
+    tradeNo: "1.270823",
+    pair: "EURUSD",
+    trend: "D1 - Up, D2, Up, D3 - Down",
+    setup: "Model B",
+    risk_reward: "5",
+    status: "LOSS",
+    lot_size: "2 Contracts",
+    opened: "270823, 12:15 PM GMT",
+    closed: "270823, 14:18 PM GMT",
+    time_in_trade: "2 HOUR 3 MINS",
+    stoploss_size: "7 pips",
+    confluences:
+      "MTF + HTF Mitigation. Refined POI MTF, LQ Sweep, Inducement LID, CH M15. CH M1, Flip, V-Shape,",
+    notes: "",
+  },
+];
+
+export default function StrategyTable() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/user/plan/backtest/creatingANewBacktestingSession");
+  };
+
   return (
     <div className="flex flex-col">
+      <div className="flex justify-between items-center mb-4 gap-4">
+        <Input placeholder="Search..." />
+        <Button
+          variant="outline"
+          className="bg-gray-400 hover:bg-black hover:text-white"
+          onClick={handleClick}
+        >
+          Add a New Backtesting Session
+        </Button>
+      </div>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">STRATEGY</TableHead>
-            <TableHead className="text-center">DESCRIPTION</TableHead>
-            <TableHead className="text-center">TRADING FOR</TableHead>
-            <TableHead className="text-center">WIN RATE</TableHead>
-            <TableHead className="text-center">W</TableHead>
-            <TableHead className="text-center">L</TableHead>
-            <TableHead className="text-center">BE</TableHead>
-            <TableHead className="text-center">RETURN</TableHead>
-            <TableHead className="text-center">ACTION</TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              STRATEGY
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              DESCRIPTION
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              TRADING FOR
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              WIN RATE
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              W
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              L
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              BE
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              RETURN
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              ACTION
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {columnData.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow
+              key={index}
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+            >
               <TableCell className="font-medium text-center">
                 {item.strategy}
               </TableCell>
@@ -81,13 +251,42 @@ export default function setup() {
           ))}
         </TableBody>
       </Table>
-      <Button
-        variant="outline"
-        className="bg-gray-400 w-[20%] ml-2 hover:bg-black hover:text-white"
-      >
-        Add a New Backtesting Session
-      </Button>
-         
+      <div className="flex justify-end">
+        <div className="flex justify-evenly bg-white px-4 py-2 w-[50%]">
+          <div className="font-bold text-base">Account Balance:</div>
+          <div className="font-bold text-base">Realised P&L:</div>
+          <div className="font-bold text-base">Unrealised P&L:</div>
+        </div>
+      </div>
+      <img
+        src={`https://editorial.fxstreet.com/miscelaneous/image-638494818129142977.png`}
+        alt="gbpusd chart"
+        className="w-full mb-4"
+      />
+      <div className="flex justify-evenly gap-8">
+        <div className="flex flex-col justify-between items-center border border-gray-200 rounded-md px-4 py-2 bg-gray-100 w-[20%]">
+          <span className="font-medium text-left">Total Invested Capital</span>
+          <span className="text-right">£1,000</span>
+        </div>
+        <div className="flex flex-col justify-between items-center border border-gray-200 rounded-md px-4 py-2 bg-gray-100 w-[20%]">
+          <span className="font-medium text-left">Total Net P&L Earned</span>
+          <span className="text-right">£235</span>
+        </div>
+        <div className="flex flex-col justify-between items-center border border-gray-200 rounded-md px-4 py-2 bg-gray-100 w-[20%]">
+          <span className="font-medium text-left">Win Loss</span>
+          <span className="text-right">65.2%</span>
+        </div>
+        <div className="flex flex-col justify-between items-center border border-gray-200 rounded-md px-4 py-2 bg-gray-100 w-[20%]">
+          <span className="font-medium text-left">Risk Reward (ave.)</span>
+          <span className="text-right">8.8</span>
+        </div>
+        <div className="flex flex-col justify-between items-center border border-gray-200 rounded-md px-4 py-2 bg-gray-100 w-[20%]">
+          <span className="font-medium text-left">Drawdown (max)</span>
+          <span className="text-right">£120</span>
+        </div>
+      </div>
+
+      <OpenedClosedTradesUI data={tradeData} />
     </div>
   );
 }
