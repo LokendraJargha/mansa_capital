@@ -1,7 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-
+import { signIn } from "../../../../auth";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -51,12 +51,17 @@ export default function Login() {
         <CardHeader>
           <CardTitle>Sign In to Your Account</CardTitle>
         </CardHeader>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form
+        // action={async (formData) => {
+        //   await signIn("credentials", formData)
+        // }}
+        >
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="email">REGISTERED EMAIL</Label>
               <Input
                 id="email"
+                name="email"
                 type="email"
                 {...register("email", {
                   required: "Email is required",
@@ -65,9 +70,8 @@ export default function Login() {
                     message: "Invalid email address",
                   },
                 })}
-                className={`${
-                  errors.email ? "border-red-500" : "border-input"
-                }`}
+                className={`${errors.email ? "border-red-500" : "border-input"
+                  }`}
               />
               {errors.email && (
                 <span className="text-xs text-red-500">
@@ -78,14 +82,13 @@ export default function Login() {
             <div className="space-y-1">
               <Label htmlFor="password">PASSWORD</Label>
               <div
-                className={`flex h-10 w-full rounded-md border ${
-                  errors.password ? "border-red-500" : "border-input"
-                } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                  activePasswordInput && "ring-2 ring-ring ring-offset-2"
-                }`}
+                className={`flex h-10 w-full rounded-md border ${errors.password ? "border-red-500" : "border-input"
+                  } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${activePasswordInput && "ring-2 ring-ring ring-offset-2"
+                  }`}
               >
                 <input
                   id="password"
+                  name="password"
                   className="border-none outline-none w-full"
                   type={showPassword ? "text" : "password"}
                   {...register("password", {

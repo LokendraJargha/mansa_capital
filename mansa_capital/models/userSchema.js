@@ -4,17 +4,15 @@ const UserSchema = new Schema({
     first_name: {
         type: String,
         required: true,
-        unique: true,
     },
     last_name: {
         type: String,
         required: true,
-        unique: true,
     },
     email: {
         type: String,
-        required: true,
         unique: true,
+        required: true,
     },
     password: {
         type: String,
@@ -24,5 +22,9 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    lastLoggedIn: {
+        type: Date,
+        default: Date.now,
+    }
 });
 export default models.User || model('User', UserSchema);
