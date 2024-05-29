@@ -1,14 +1,13 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
-  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const columnData = [
   {
@@ -44,22 +43,42 @@ const columnData = [
 export default function Strategy() {
   return (
     <>
+      <div className="flex justify-between items-center mb-4 gap-4">
+        <Input placeholder="Search..." />
+        <Button
+          variant="outline"
+          className="bg-gray-400 hover:bg-black hover:text-white"
+        >
+          Add a New Strategy
+        </Button>
+      </div>
       <div className="flex flex-col">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center">STRATEGY NAME</TableHead>
-              <TableHead className="text-center">CATEGORY</TableHead>
-              <TableHead className="text-center">ASSOCIATED SETUPS</TableHead>
-              <TableHead className="text-center">ALERT MECHANISM</TableHead>
-              <TableHead className="text-center">
+              <TableHead className="text-center bg-zinc-800 text-white">
+                STRATEGY NAME
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                CATEGORY
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                ASSOCIATED SETUPS
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                ALERT MECHANISM
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
                 ALERTS PER MONTH PER INSTRUMENT
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {columnData.map((item, index) => (
-              <TableRow key={index}>
+              <TableRow
+                key={index}
+                className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+              >
                 <TableCell className="font-medium text-center">
                   {item.strategyName}
                 </TableCell>
@@ -79,12 +98,6 @@ export default function Strategy() {
             ))}
           </TableBody>
         </Table>
-        <Button
-          variant="outline"
-          className="bg-gray-400 w-[20%] ml-2 hover:bg-black hover:text-white"
-        >
-          Add a New Strategy
-        </Button>
       </div>
     </>
   );

@@ -180,23 +180,50 @@ export default function setup() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center">TRADE NO.</TableHead>
-              <TableHead className="text-center">PAIR</TableHead>
-              <TableHead className="text-center">TREND</TableHead>
-              <TableHead className="text-center">SETUP</TableHead>
-              <TableHead className="text-center">R</TableHead>
-              <TableHead className="text-center">STATUS</TableHead>
-              <TableHead className="text-center">LOT SIZE</TableHead>
-              <TableHead className="text-center">OPENED</TableHead>
-              <TableHead className="text-center">TIME IN TRADE</TableHead>
-              <TableHead className="text-center">SL SIZE</TableHead>
-              <TableHead className="text-center">CONFLUENCES</TableHead>
-              <TableHead className="text-center">NOTES</TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                TRADE NO.
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                PAIR
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                TREND
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                SETUP
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                R
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                STATUS
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                LOT SIZE
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                OPENED
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                TIME IN TRADE
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                SL SIZE
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                CONFLUENCES
+              </TableHead>
+              <TableHead className="text-center bg-zinc-800 text-white">
+                NOTES
+              </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {columnData.map((item, index) => (
-              <TableRow key={index}>
+              <TableRow
+                key={index}
+                className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+              >
                 <TableCell className="font-medium text-center">
                   {item.tradeNo}
                 </TableCell>

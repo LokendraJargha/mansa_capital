@@ -55,15 +55,15 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col fixed w-1/5 h-screen bg-zinc-900 text-white">
-      <div className="flex items-center justify-center h-16 bg-zinc-800">
+    <div className="flex flex-col w-1/5 h-screen bg-zinc-900 text-white">
+      {/* <div className="flex items-center justify-center h-16 bg-zinc-800">
         <img
           src="https://placehold.co/30x30"
           alt="TailAdmin Logo"
           className="mr-2"
         />
         <span className="text-xl font-bold">Mansa Capital</span>
-      </div>
+      </div> */}
       <div className="flex-1 overflow-y-auto">
         <nav className="mt-4">
           <p className="px-4 text-zinc-400">MENU</p>
