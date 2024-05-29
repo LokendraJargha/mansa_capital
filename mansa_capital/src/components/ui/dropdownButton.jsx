@@ -42,15 +42,15 @@ const DropdownMenu = () => {
             <FaBell />
             <span>Notifications</span>
           </li> */}
-          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
+          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg hover:cursor-pointer">
             <FaUser />
             <span>Profile</span>
           </li>
-          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
+          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg hover:cursor-pointer">
             <FaCog />
             <span>Settings</span>
           </li>
-          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
+          <li className="flex items-center space-x-2 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg hover:cursor-pointer">
             <FaSignOutAlt />
             <span>Logout</span>
           </li>

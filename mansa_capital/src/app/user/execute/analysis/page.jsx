@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 
-console.log(process.env.MONGO_URI);
 const columnData = [
   {
     instrument: "EURUSD",
@@ -62,15 +61,26 @@ export default function setup() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center">INSTRUMENT</TableHead>
-            <TableHead className="text-center">LIKELY DIRECTION</TableHead>
-            <TableHead className="text-center">POSITIVE FACTORS</TableHead>
-            <TableHead className="text-center">NEGATIVE FACTORS</TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              INSTRUMENT
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              LIKELY DIRECTION
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              POSITIVE FACTORS
+            </TableHead>
+            <TableHead className="text-center bg-zinc-800 text-white">
+              NEGATIVE FACTORS
+            </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {columnData.map((item, index) => (
-            <TableRow key={index}>
+            <TableRow
+              key={index}
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
+            >
               <TableCell className="font-medium text-center">
                 {item.instrument}
               </TableCell>
