@@ -55,23 +55,14 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col w-1/5 h-screen bg-zinc-900 text-white">
-      {/* <div className="flex items-center justify-center h-16 bg-zinc-800">
-        <img
-          src="https://placehold.co/30x30"
-          alt="TailAdmin Logo"
-          className="mr-2"
-        />
-        <span className="text-xl font-bold">Mansa Capital</span>
-      </div> */}
+    <div className="flex flex-col fixed w-1/5 h-screen bg-white-900 text-white">
       <div className="flex-1 overflow-y-auto">
         <nav className="mt-4">
-          <p className="px-4 text-zinc-400">MENU</p>
-          <ul className="mt-2 flex flex-col gap-2">
+          <ul className="mt-2 ml-2 flex text-black  flex-col gap-2 ">
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
-                  activeMenu === "Review" ? "bg-gray-700" : ""
+                className={`flex items-center rounded-lg justify-between p-4 cursor-pointer ${
+                  activeMenu === "Review" ? "bg-[#174894] text-white" : ""
                 }`}
                 onClick={() => handleMenuClick("Review")}
               >
@@ -84,30 +75,30 @@ const Sidebar = () => {
               {activeMenu === "Review" && (
                 <ul className="ml-4 mt-2 flex flex-col gap-1">
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Results"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Results")}
                   >
                     Results
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer  ${
+                    className={`p-3 rounded-lg cursor-pointer  ${
                       activeSubmenu === "Reviews"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Reviews")}
                   >
                     Reviews
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Actions"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Actions")}
                   >
@@ -118,8 +109,8 @@ const Sidebar = () => {
             </li>
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
-                  activeMenu === "Plan" ? "bg-gray-700" : ""
+                className={`flex items-center justify-between rounded-lg p-4 cursor-pointer ${
+                  activeMenu === "Plan" ? "bg-[#174894] text-white" : ""
                 }`}
                 onClick={() => handleMenuClick("Plan")}
               >
@@ -132,28 +123,30 @@ const Sidebar = () => {
               {activeMenu === "Plan" && (
                 <ul className="ml-4 mt-2 flex flex-col gap-1">
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Strategy"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Strategy")}
                   >
                     Strategy
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
-                      activeSubmenu === "Setup" ? "text-white" : "text-zinc-500"
+                    className={`p-3 rounded-lg cursor-pointer ${
+                      activeSubmenu === "Setup"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Setup")}
                   >
                     Setup
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Backtest"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Backtest")}
                   >
@@ -164,8 +157,8 @@ const Sidebar = () => {
             </li>
             <li className="flex flex-col">
               <div
-                className={`flex items-center justify-between px-4 py-2 cursor-pointer ${
-                  activeMenu === "Execute" ? "bg-gray-700" : ""
+                className={`flex items-center justify-between rounded-lg p-4 cursor-pointer ${
+                  activeMenu === "Execute" ? "bg-[#174894] text-white" : ""
                 }`}
                 onClick={() => handleMenuClick("Execute")}
               >
@@ -178,28 +171,30 @@ const Sidebar = () => {
               {activeMenu === "Execute" && (
                 <ul className="ml-4 mt-2 flex flex-col gap-1">
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Analysis"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Analysis")}
                   >
                     Analysis
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
-                      activeSubmenu === "Ideas" ? "text-white" : "text-zinc-500"
+                    className={`p-3 rounded-lg cursor-pointer ${
+                      activeSubmenu === "Ideas"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Ideas")}
                   >
                     Ideas
                   </li>
                   <li
-                    className={`px-4 py-2 rounded-lg cursor-pointer ${
+                    className={`p-3 rounded-lg cursor-pointer ${
                       activeSubmenu === "Trades"
-                        ? "text-white"
-                        : "text-zinc-500"
+                        ? "text-white bg-[#174894]"
+                        : "text-black"
                     }`}
                     onClick={() => handleSubmenuClick("Trades")}
                   >
