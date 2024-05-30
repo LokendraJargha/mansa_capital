@@ -180,40 +180,40 @@ export default function setup() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 TRADE NO.
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 PAIR
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 TREND
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 SETUP
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 R
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 STATUS
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 LOT SIZE
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 OPENED
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 TIME IN TRADE
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 SL SIZE
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 CONFLUENCES
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 NOTES
               </TableHead>
             </TableRow>

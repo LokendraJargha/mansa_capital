@@ -183,49 +183,53 @@ const tradeData = [
 export default function StrategyTable() {
   const router = useRouter();
   const handleClick = () => {
-    router.push("/user/plan/backtest/creatingANewBacktestingSession");
+    router.push("/user/plan/backtest/newbacktest");
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="flex justify-between items-center mb-4 gap-4">
-        <Input placeholder="Search..." />
+    <div className="flex mt-4 flex-col">
+      <div className="flex  items-center justify-end mb-4 gap-4">
+        <input
+          type="text"
+          placeholder="Type to search..."
+          className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700 dark:text-white"
+        />
         <Button
           variant="outline"
-          className="bg-gray-400 hover:bg-black hover:text-white"
+          className="bg-gray-400 hover:bg-[#174894] hover:text-white"
           onClick={handleClick}
         >
-          Add a New Backtesting Session
+          Add a New Backtesting Sessin
         </Button>
       </div>
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               STRATEGY
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               DESCRIPTION
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               TRADING FOR
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               WIN RATE
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               W
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               L
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               BE
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               RETURN
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               ACTION
             </TableHead>
           </TableRow>

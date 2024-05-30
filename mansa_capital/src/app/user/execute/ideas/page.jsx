@@ -30,31 +30,31 @@ export default function setup() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               INSTRUMENT
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               TIME
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               STRATEGY
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               TREND
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               S.LENGTH (TIME & PRICE)
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               WAVE COUNT
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               POINT OF INTERESTS
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               NOTES
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               ACTION
             </TableHead>
           </TableRow>

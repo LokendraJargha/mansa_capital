@@ -21,6 +21,10 @@ const Header = () => {
     }
   };
 
+  const handleLinkClick = () => {
+    setShowDropdownMenu(false);
+  };
+
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -77,20 +81,32 @@ const Header = () => {
           <nav className="mt-4">
             <ul className="space-y-2">
               <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
-                <Link href="/user/profile">
-                  <FaUser />
+                <Link
+                  href="/user/profile"
+                  className="flex flex-row"
+                  onClick={handleLinkClick}
+                >
+                  <FaUser className="mr-2" />
                   <span>Profile</span>
                 </Link>
               </li>
               <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
-                <Link href="/user/settings">
-                  <FaCog />
+                <Link
+                  href="/user/settings"
+                  className="flex flex-row"
+                  onClick={handleLinkClick}
+                >
+                  <FaCog className="mr-2" />
                   <span>Settings</span>
                 </Link>
               </li>
               <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
-                <Link href="/./">
-                  <FaSignOutAlt />
+                <Link
+                  href="/./"
+                  className="flex flex-row"
+                  onClick={handleLinkClick}
+                >
+                  <FaSignOutAlt className="mr-2" />
                   <span>Logout</span>
                 </Link>
               </li>
