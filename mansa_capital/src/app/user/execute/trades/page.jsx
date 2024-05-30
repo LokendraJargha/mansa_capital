@@ -147,31 +147,31 @@ export default function setup() {
       <div className="flex items-center justify-center my-4">
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] hover:text-white rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           Advanced Filters
         </button>
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] hover:text-white rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           Date Range
         </button>
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] hover:text-white rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Accounts
         </button>
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] hover:text-white rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Strategies
         </button>
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] hover:text-white rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Setups
         </button>
