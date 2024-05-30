@@ -147,73 +147,73 @@ export default function setup() {
       <div className="flex items-center justify-center my-4">
         <button
           variant="outline"
-          className="bg-gray-500 w-[20%] ml-2 hover:bg-black hover:text-white rounded-lg"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           Advanced Filters
         </button>
         <button
           variant="outline"
-          className="bg-gray-500 w-[20%] ml-2 hover:bg-black hover:text-white rounded-lg"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           Date Range
         </button>
         <button
           variant="outline"
-          className="bg-gray-500 w-[20%] ml-2 hover:bg-black hover:text-white rounded-lg"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Accounts
         </button>
         <button
           variant="outline"
-          className="bg-gray-500 w-[20%] ml-2 hover:bg-black hover:text-white rounded-lg"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Strategies
         </button>
         <button
           variant="outline"
-          className="bg-gray-500 w-[20%] ml-2 hover:bg-black hover:text-white rounded-lg"
+          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           All Setups
         </button>
       </div>
       <div className="flex flex-col">
-        <Table>
+        <Table className="overflow-x-auto">
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 TRADE NO.
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 PAIR
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 TREND
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 SETUP
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 R
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 STATUS
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 LOT SIZE
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 OPENED
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 TIME IN TRADE
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 SL SIZE
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 CONFLUENCES
               </TableHead>
-              <TableHead className="text-center bg-[#174894] text-white">
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 NOTES
               </TableHead>
             </TableRow>
@@ -224,28 +224,42 @@ export default function setup() {
                 key={index}
                 className={index % 2 === 0 ? "bg-gray-100" : "bg-gray-300"}
               >
-                <TableCell className="font-medium text-center">
+                <TableCell className="font-medium text-center whitespace-nowrap">
                   {item.tradeNo}
                 </TableCell>
-                <TableCell className="text-center">{item.pair}</TableCell>
-                <TableCell className="text-center">{item.trend}</TableCell>
-                <TableCell className="text-center">{item.setup}</TableCell>
-                <TableCell className="text-center">
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.pair}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.trend}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.setup}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
                   {item.risk_reward}
                 </TableCell>
-                <TableCell className="text-center">{item.status}</TableCell>
-                <TableCell className="text-center">{item.lot_size}</TableCell>
-                <TableCell className="text-center">{item.opened}</TableCell>
-                <TableCell className="text-center">
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.status}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.lot_size}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.opened}
+                </TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
                   {item.time_in_trade}
                 </TableCell>
-                <TableCell className="text-center">
+                <TableCell className="font-medium text-center whitespace-nowrap">
                   {item.stoploss_size}
                 </TableCell>
-                <TableCell className="text-center">
+                <TableCell className="font-medium text-center whitespace-nowrap">
                   {item.confluences}
                 </TableCell>
-                <TableCell className="text-center">{item.notes}</TableCell>
+                <TableCell className="font-medium text-center whitespace-nowrap">
+                  {item.notes}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
