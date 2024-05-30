@@ -34,28 +34,29 @@ export default function NewBacktest() {
   };
 
   return (
-    <Card className="w-1/2">
+    <Card className="max-w-lg mx-auto mt-10 shadow-lg">
       <CardHeader>
-        <CardTitle>Create a Backtesting Session</CardTitle>
+        <CardTitle className="text-center text-xl font-semibold">
+          Create a Backtesting Session
+        </CardTitle>
       </CardHeader>
       <form onSubmit={handleSubmit(onSubmit)}>
         <CardContent className="space-y-2">
-          <div className="space-y-1 mr-4 ">
-            <Label
-              className="text-muted-foreground mr-4"
-              htmlFor="accountBalance"
-            >
+          <div>
+            <Label className="text-gray-600" htmlFor="accountBalance">
               ACCOUNT BALANCE
             </Label>
             <div
-              className={`flex w-full gap-3 border rounded-md p-2 outline-none ${
-                errors.accountBalance ? "border-red-500" : ""
-              }`}
+              className={`flex w-full gap-3 border rounded-md p-2 ${
+                errors.accountBalance ? "border-red-500" : "border-gray-300"
+              } focus-within:border-blue-500`}
             >
               <p>USD</p>
               <input
                 className={`flex w-full outline-none ${
-                  errors.accountBalance ? "border-red-500" : ""
+                  errors.accountBalance
+                    ? "border-red-500"
+                    : "border-transparent"
                 }`}
                 placeholder="0.00"
                 {...register("accountBalance", {
@@ -73,15 +74,15 @@ export default function NewBacktest() {
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4 ">
-            <Label className="text-muted-foreground mr-4" htmlFor="pairs">
+          <div>
+            <Label className="text-gray-600" htmlFor="pairs">
               PAIRS
             </Label>
             <select
               id="pairs"
               className={`w-full rounded-md border ${
-                errors.pairs ? "border-red-500" : "border-input"
-              } bg-background px-3 py-2.5 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
+                errors.pairs ? "border-red-500" : "border-gray-300"
+              } bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none`}
               {...register("pairs", { required: "Pair is required" })}
             >
               <option value="">Select a pair</option>
@@ -89,16 +90,20 @@ export default function NewBacktest() {
               <option value="gbpusd">GBP USD</option>
               <option value="us500">US 500</option>
             </select>
+            {errors.pairs && (
+              <span className="text-red-500 text-xs">
+                {errors.pairs.message}
+              </span>
+            )}
           </div>
-
-          <div className="space-y-1 mr-4">
-            <Label className="text-muted-foreground mr-4" htmlFor="startDate">
+          <div>
+            <Label className="text-gray-600" htmlFor="startDate">
               START DATE
             </Label>
             <Input
-              className={`flex w-full outline-none ${
-                errors.startDate ? "border-red-500" : ""
-              }`}
+              className={`w-full rounded-md border ${
+                errors.startDate ? "border-red-500" : "border-gray-300"
+              } px-3 py-2 text-sm focus:border-blue-500 focus:outline-none`}
               id="startDate"
               type="date"
               {...register("startDate", {
@@ -114,14 +119,14 @@ export default function NewBacktest() {
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4">
-            <Label className="text-muted-foreground mr-4" htmlFor="endDate">
+          <div>
+            <Label className="text-gray-600" htmlFor="endDate">
               END DATE
             </Label>
             <Input
-              className={`flex w-full outline-none ${
-                errors.endDate ? "border-red-500" : ""
-              }`}
+              className={`w-full rounded-md border ${
+                errors.endDate ? "border-red-500" : "border-gray-300"
+              } px-3 py-2 text-sm focus:border-blue-500 focus:outline-none`}
               id="endDate"
               type="date"
               {...register("endDate", {
@@ -138,31 +143,32 @@ export default function NewBacktest() {
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4">
-            <Label className="text-muted-foreground mr-4" htmlFor="strategy">
+          <div>
+            <Label className="text-gray-600" htmlFor="strategy">
               STRATEGY
             </Label>
             <Input
-              className={`flex w-full outline-none ${
-                errors.endDate ? "border-red-500" : ""
-              }`}
+              className={`w-full rounded-md border ${
+                errors.strategy ? "border-red-500" : "border-gray-300"
+              } px-3 py-2 text-sm focus:border-blue-500 focus:outline-none`}
               id="strategy"
               type="text"
               {...register("strategy", {
-                required: "End date is required",
+                required: "Strategy is required",
               })}
             />
-            {errors.sessionName && (
+            {errors.strategy && (
               <span className="text-red-500 text-xs">
                 {errors.strategy.message}
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4">
-            <Label className="text-muted-foreground mr-4" htmlFor="sessionName">
-              Name of Session
+          <div>
+            <Label className="text-gray-600" htmlFor="sessionName">
+              NAME OF SESSION (optional)
             </Label>
             <Input
+              className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
               id="sessionName"
               type="text"
               {...register("sessionName", {})}
@@ -173,20 +179,24 @@ export default function NewBacktest() {
               </span>
             )}
           </div>
-          <div className="space-y-1 mr-4">
-            <label className="text-muted-foreground mr-4" htmlFor="description">
-              Description (optional)
-            </label>
+          <div>
+            <Label className="text-gray-600" htmlFor="description">
+              DESCRIPTION (optional)
+            </Label>
             <textarea
-              className="w-full h-32 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              className="w-full h-32 rounded-md border border-gray-300 bg-white px-3 py-2 text-sm focus:border-blue-500 focus:outline-none"
               id="description"
               {...register("description")}
             />
           </div>
         </CardContent>
-
-        <CardFooter>
-          <Button type="submit">SUBMIT</Button>
+        <CardFooter className="flex justify-end">
+          <Button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+          >
+            SUBMIT
+          </Button>
         </CardFooter>
       </form>
     </Card>

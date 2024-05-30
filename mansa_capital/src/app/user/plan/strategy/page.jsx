@@ -1,3 +1,4 @@
+"use client";
 import {
   Table,
   TableBody,
@@ -8,6 +9,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "next/navigation";
 
 const columnData = [
   {
@@ -41,34 +43,43 @@ const columnData = [
 ];
 
 export default function Strategy() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/user/plan/strategy/details");
+  };
   return (
     <>
-      <div className="flex justify-between items-center mb-4 gap-4">
-        <Input placeholder="Search..." />
+      <div className="flex justify-end items-center mt-4 mb-4 gap-4">
+        <input
+          type="text"
+          placeholder="Type to search..."
+          className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700 dark:text-white"
+        />
         <Button
           variant="outline"
-          className="bg-gray-400 hover:bg-black hover:text-white"
+          className="bg-gray-400 hover:bg-[#174894] hover:text-white"
+          onClick={handleClick}
         >
-          Add a New Strategy
+          Strategy Details
         </Button>
       </div>
       <div className="flex flex-col">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 STRATEGY NAME
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 CATEGORY
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 ASSOCIATED SETUPS
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 ALERT MECHANISM
               </TableHead>
-              <TableHead className="text-center bg-zinc-800 text-white">
+              <TableHead className="text-center bg-[#174894] text-white">
                 ALERTS PER MONTH PER INSTRUMENT
               </TableHead>
             </TableRow>
