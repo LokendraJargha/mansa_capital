@@ -61,16 +61,16 @@ export default function setup() {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               INSTRUMENT
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               LIKELY DIRECTION
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               POSITIVE FACTORS
             </TableHead>
-            <TableHead className="text-center bg-zinc-800 text-white">
+            <TableHead className="text-center bg-[#174894] text-white">
               NEGATIVE FACTORS
             </TableHead>
           </TableRow>
