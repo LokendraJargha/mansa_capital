@@ -2,8 +2,6 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { signIn } from "../../../../auth";
-import { useRouter } from "next/navigation";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Card,
@@ -18,8 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
-export default function Login() {
-  const router = useRouter();
+export default function Login_Page() {
   const [showPassword, setShowPassword] = useState(false);
   const [activePasswordInput, setActivePasswordInput] = useState(false);
   const togglePasswordVisibility = () => {
@@ -31,19 +28,8 @@ export default function Login() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data) => {
-    try {
-      console.log(data);
-      await router.push("/user/settings");
-    } catch (error) {
-      toast.error("Something went Wrong from Backend");
-      console.log("Error Occured ", error);
-    }
-    // Handle form submission logic here
-  };
-
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row m-2 p-2 rounded-sm  bg-white">
       <div className="flex w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
         <img src="/images/Designer.png" />
       </div>
@@ -52,9 +38,11 @@ export default function Login() {
           <CardTitle>Sign In to Your Account</CardTitle>
         </CardHeader>
         <form
-        // action={async (formData) => {
-        //   await signIn("credentials", formData)
-        // }}
+          action={async (formData) => {
+            "use server";
+            console.log(formData);
+            await signIn("credentials", formData);
+          }}
         >
           <CardContent className="space-y-2">
             <div className="space-y-1">
@@ -70,8 +58,9 @@ export default function Login() {
                     message: "Invalid email address",
                   },
                 })}
-                className={`${errors.email ? "border-red-500" : "border-input"
-                  }`}
+                className={`${
+                  errors.email ? "border-red-500" : "border-input"
+                }`}
               />
               {errors.email && (
                 <span className="text-xs text-red-500">
@@ -82,9 +71,11 @@ export default function Login() {
             <div className="space-y-1">
               <Label htmlFor="password">PASSWORD</Label>
               <div
-                className={`flex h-10 w-full rounded-md border ${errors.password ? "border-red-500" : "border-input"
-                  } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${activePasswordInput && "ring-2 ring-ring ring-offset-2"
-                  }`}
+                className={`flex h-10 w-full rounded-md border ${
+                  errors.password ? "border-red-500" : "border-input"
+                } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                  activePasswordInput && "ring-2 ring-ring ring-offset-2"
+                }`}
               >
                 <input
                   id="password"

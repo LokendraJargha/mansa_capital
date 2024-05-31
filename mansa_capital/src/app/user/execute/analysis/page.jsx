@@ -57,7 +57,7 @@ const columnData = [
 
 export default function setup() {
   return (
-    <div>
+    <div className=" flex m-2 p-2 rounded-sm  bg-white">
       <Table>
         <TableHeader>
           <TableRow>

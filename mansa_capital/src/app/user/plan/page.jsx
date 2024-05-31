@@ -78,7 +78,7 @@ const Plan = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex m-2 p-2 rounded-sm  bg-white">
       {/* <Navbar setActiveTab={setActiveTab} /> */}
       <div className="flex flex-col w-[100%]">
         <div className="p-4 bg-white border border-gray-300 mt-4">

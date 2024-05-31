@@ -187,7 +187,7 @@ export default function StrategyTable() {
   };
 
   return (
-    <div className="flex mt-4 flex-col">
+    <div className="flex mt-4 m-2 p-2 rounded-sm flex-col bg-white">
       <div className="flex  items-center justify-end mb-4 gap-4">
         <input
           type="text"
