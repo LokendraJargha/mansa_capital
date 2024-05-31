@@ -26,7 +26,7 @@ const columnData = [
 
 export default function setup() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col m-2 p-2 rounded-sm  bg-white">
       <Table>
         <TableHeader>
           <TableRow>

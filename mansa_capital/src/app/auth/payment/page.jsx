@@ -49,7 +49,7 @@ export default function Payment() {
   };
 
   return (
-    <div className="m-4 p-4">
+    <div className="flex m-2 p-2 rounded-sm  bg-white">
       <div>
         <div>
           <div>

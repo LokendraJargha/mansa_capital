@@ -9,7 +9,7 @@ const SetupComponent = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="flex m-2 p-2 rounded-sm bg-white">
       <div className="mb-4">
         <button
           className="text-white bg-gray-400 hover:bg-black hover:font-bold p-2 rounded-md"

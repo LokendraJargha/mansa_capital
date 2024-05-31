@@ -55,10 +55,10 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="flex flex-col fixed w-1/5 h-screen bg-white-900 text-white">
+    <div className="flex flex-col bg-white fixed w-1/5 h-screen bg-white-900 text-white">
       <div className="flex-1 overflow-y-auto">
         <nav className="mt-4">
-          <ul className="mt-2 ml-2 flex text-black  flex-col gap-2 ">
+          <ul className="mt-2 mx-2 flex text-black  flex-col gap-2 ">
             <li className="flex flex-col">
               <div
                 className={`flex items-center rounded-lg justify-between p-4 cursor-pointer ${

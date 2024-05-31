@@ -2,7 +2,11 @@ import Calendar from "../calendar/page";
 
 export default function ReviewLayout({ children }) {
     return (
-        <div>
+        <div
+         className="flex m-2 p-2 rounded-sm  bg-white">
+            <div className="flex flex-col">
+
+            
             <div>Good morning , Adil Khan</div>
             <div className="w-full flex justify-end gap-2">
                 <li>$</li>
@@ -27,6 +31,7 @@ export default function ReviewLayout({ children }) {
 
             </div>
             {children}
+        </div>
         </div>
     )
 }

@@ -82,7 +82,7 @@ const Header = () => {
             <ul className="space-y-2">
               <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
                 <Link
-                  href="/user/profile"
+                  href="/user/settings"
                   className="flex flex-row"
                   onClick={handleLinkClick}
                 >
@@ -90,19 +90,10 @@ const Header = () => {
                   <span>Profile</span>
                 </Link>
               </li>
+
               <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
                 <Link
-                  href="/user/settings"
-                  className="flex flex-row"
-                  onClick={handleLinkClick}
-                >
-                  <FaCog className="mr-2" />
-                  <span>Settings</span>
-                </Link>
-              </li>
-              <li className="text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-700 p-2 rounded-lg">
-                <Link
-                  href="/./"
+                  href="/auth/login"
                   className="flex flex-row"
                   onClick={handleLinkClick}
                 >
