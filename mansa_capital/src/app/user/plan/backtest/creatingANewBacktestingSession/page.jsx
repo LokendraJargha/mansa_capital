@@ -25,7 +25,7 @@ const CreatingANewBacktestingSession = () => {
   };
 
   return (
-    <div>
+    <div className="flex m-2 p-2 rounded-sm bg-white">
       <h1 className="text-2xl font-bold text-center mb-4">
         Creating A New Backtesting Session
       </h1>

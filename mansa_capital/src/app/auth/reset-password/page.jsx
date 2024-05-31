@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 
 export default function ResetPassword() {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row m-2 p-2 rounded-sm  bg-white">
       <div className="flex w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
         <img src="/images/Designer.png" />
       </div>

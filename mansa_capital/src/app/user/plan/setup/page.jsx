@@ -49,7 +49,7 @@ export default function setup() {
     router.push("/user/plan/setup/details");
   };
   return (
-    <div className="flex flex-col mt-4">
+    <div className="flex flex-col m-2 p-2 rounded-sm  bg-white">
       <div className="flex  items-center justify-end mb-4 gap-4">
         <input
           type="text"

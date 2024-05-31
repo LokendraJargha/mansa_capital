@@ -28,11 +28,14 @@ import TradeSettings from "./trade";
 import Session from "./sessions";
 import Probablity from "./probability";
 import Privacy from "./privacy";
+import Pullbacks from "./pullbacks";
+import Tags from "./tags";
+import Education from "./education";
 
 export default function Settings() {
   return (
     <>
-      <div>
+      <div className="bg-white">
         <div>
           <div className="space-y-1 w-full ">
             <Profile />
@@ -78,27 +81,7 @@ const Instruments = () => {
     </div>
   );
 };
-const Pullbacks = () => {
-  return (
-    <div>
-      <div>PULLBACKS</div>
-    </div>
-  );
-};
-const Tags = () => {
-  return (
-    <div>
-      <div>TAGS</div>
-    </div>
-  );
-};
-const Education = () => {
-  return (
-    <div>
-      <div>EDUCATION</div>
-    </div>
-  );
-};
+
 const History = () => {
   return (
     <div>

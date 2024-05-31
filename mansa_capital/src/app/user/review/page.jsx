@@ -15,12 +15,7 @@ import PerformanceTable from "./PerformanceTable";
 export default function Review() {
   return (
     <div className="text-muted-foreground text-sm flex flex-col gap-2">
-
-
-      <div className="w-full flex gap-2">
-
-
-      </div>
+      <div className="w-full flex gap-2"></div>
       <ThreeTabs />
 
       <div>
@@ -60,9 +55,7 @@ export default function Review() {
   );
 }
 
-
-
-WWW
+WWW;
 const ThreeTabs = () => {
   return (
     <div className="flex gap-12 text-primary">
@@ -271,7 +264,7 @@ const DoneTrade = () => {
 
 const WeeklyReflection = () => {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 bg-white">
       <p className="text-xl font-bold">Weekly Reflection</p>
       <p>On Scale of 1-10 , how happy were you this week and why?</p>
       <input type="range" min="1" max="100" class="slider" id="myRange" />

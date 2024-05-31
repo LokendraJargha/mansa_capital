@@ -27,7 +27,7 @@ const Execute = () => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex m-2 p-2 rounded-sm  bg-white">
       <Navbar />
       <div className="flex flex-col w-[100%]">
         {/* <div className="flex justify-around bg-gray-100 p-4 mx-auto w-[50%]">
