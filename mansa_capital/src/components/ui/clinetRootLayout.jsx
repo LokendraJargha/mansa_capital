@@ -13,7 +13,7 @@ const ClientRootLayout = ({ children }) => {
         <div className="w-[20%] h-full fixed top-16">
           <Sidebar />
         </div>
-        <div className="flex flex-col flex-1 ml-[20%] mt-5 bg-zinc-200">
+        <div className="flex flex-col flex-1 ml-[20%] overflow-y-auto overflow-x-auto mt-5 bg-zinc-200">
           <div className="flex-1 ">{children}</div>
           {/* <Footer className="w-full" /> */}
         </div>

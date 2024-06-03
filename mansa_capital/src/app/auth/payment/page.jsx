@@ -49,14 +49,14 @@ export default function Payment() {
   };
 
   return (
-    <div className="flex m-2 p-2 rounded-sm  bg-white">
+    <div className="flex m-3 px-3 py-6  rounded-lg  bg-white font-serif font-bold">
       <div>
         <div>
           <div>
-            <div className="text-2xl font-bold">
+            <div className="text-4xl font-bold ">
               You are subscribing to Mansa Capital Trading Signals
             </div>
-            <div>
+            <div className="text-xl">
               Start earning 60%+ return to your portfolio with a single click of
               a button
             </div>

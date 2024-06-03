@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { Search } from "lucide-react";
 
 const columnData = [
   {
@@ -49,13 +50,18 @@ export default function setup() {
     router.push("/user/plan/setup/details");
   };
   return (
-    <div className="flex flex-col m-2 p-2 rounded-sm  bg-white">
+    <div className="flex flex-col m-3 px-3 py-6 rounded-lg  bg-white">
       <div className="flex  items-center justify-end mb-4 gap-4">
-        <input
-          type="text"
-          placeholder="Type to search..."
-          className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-zinc-700 dark:text-white"
-        />
+        <div className="flex justify-end items-center mt-4 mb-4 gap-4">
+          <div className="flex flex-row items-center pl-2 pr-4 py-2 border border-gray-300 rounded-lg focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-500 bg-white dark:bg-zinc-700 dark:text-white shadow-md">
+            <Search className="text-gray-500 dark:text-gray-400 mr-2" />
+            <input
+              type="text"
+              placeholder="Type to search..."
+              className="bg-transparent flex-grow outline-none text-gray-800 dark:text-white"
+            />
+          </div>
+        </div>
         <Button
           variant="outline"
           className="bg-gray-400 hover:bg-[#174894] hover:text-white"
@@ -64,7 +70,7 @@ export default function setup() {
           Setup Details
         </Button>
       </div>
-      <Table>
+      <Table className="rounded-sm overflow-hidden">
         <TableHeader>
           <TableRow>
             <TableHead className="text-center bg-[#174894] text-white">

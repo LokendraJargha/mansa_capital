@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/ui/navbar";
 
 import Analysis from "./analysis/page";
 import Ideas from "./ideas/page";
@@ -27,8 +26,7 @@ const Execute = () => {
   };
 
   return (
-    <div className="flex m-2 p-2 rounded-sm  bg-white">
-      <Navbar />
+    <div className="flex m-3 px-3 py-6 rounded-lg  bg-white">
       <div className="flex flex-col w-[100%]">
         {/* <div className="flex justify-around bg-gray-100 p-4 mx-auto w-[50%]">
           <button

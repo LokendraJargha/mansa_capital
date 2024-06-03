@@ -42,7 +42,7 @@ const OpenedClosedTradesUI = ({ data }) => {
         </button>
       </div>
       <div className="flex flex-col">
-        <Table className="overflow-x-auto">
+        <Table className="rounded-sm overflow-hidden">
           <TableHeader>
             <TableRow>
               <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
@@ -81,6 +81,7 @@ const OpenedClosedTradesUI = ({ data }) => {
               <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
                 NOTES
               </TableHead>
+              <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

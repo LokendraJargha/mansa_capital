@@ -391,7 +391,7 @@ const columnData = [
 
 export function setup() {
   return (
-    <div className="flex m-2 p-2 rounded-sm  bg-white">
+    <div className="flex m-3 px-3 py-6 rounded-lg  bg-white">
       <div>
         <div className="flex items-center justify-center m-2 p-2 rounded-sm bg-white">
           <button

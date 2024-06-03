@@ -37,7 +37,7 @@ export default function Calendar() {
 
   const breakedArray = convertToMultiDimensional(allDaysOfMonth());
   return (
-    <div className="border m-2 p-2 rounded-sm  bg-white">
+    <div className="flex border m-3 px-3 py-6 rounded-lg  bg-white">
       Year is {year}
       Month is {month}
       <table>

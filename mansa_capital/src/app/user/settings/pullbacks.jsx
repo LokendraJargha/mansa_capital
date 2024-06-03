@@ -77,7 +77,7 @@ const Pullbacks = () => {
     <div className="flex flex-row p-4">
       <div className="flex w-1/5 m-4 text-lg">PULLBACKS</div>
       <div className="flex w-4/5">
-        <Table>
+        <Table className="rounded-sm overflow-hidden">
           <TableHeader>
             <TableRow>
               <TableHead className="text-center bg-[#174894] text-white"></TableHead>
