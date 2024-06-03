@@ -1,6 +1,8 @@
 "use client";
-import { useForm } from "react-hook-form";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Card,
@@ -16,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Login_Page() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [activePasswordInput, setActivePasswordInput] = useState(false);
   const togglePasswordVisibility = () => {
@@ -26,12 +29,29 @@ export default function Login_Page() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        await router.push("/user/settings");
+      } else {
+        toast.error("Login failed");
+      }
+    } catch (error) {
+      toast.error("Something went wrong from Backend");
+      console.log("Error occurred ", error);
+    }
   };
 
   return (
-    <div className="flex flex-row m-3 px-3 py-6 rounded-lg  bg-white">
+    <div className="flex flex-row m-3 px-3 py-6 rounded-lg bg-white">
       <div className="flex w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
         <img src="/images/Designer.png" />
       </div>
@@ -39,7 +59,7 @@ export default function Login_Page() {
         <CardHeader>
           <CardTitle>Sign In to Your Account</CardTitle>
         </CardHeader>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <CardContent className="space-y-2">
             <div className="space-y-1">
               <Label htmlFor="email">REGISTERED EMAIL</Label>

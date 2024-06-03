@@ -45,6 +45,12 @@ export default function Register() {
         },
         body: JSON.stringify(data),
       });
+
+      if (res.ok) {
+        await router.push("/auth/payment");
+      } else {
+        toast.error("Registration failed");
+      }
     } catch (error) {
       toast.error("Something went wrong from Backend");
       console.log("Error occurred ", error);
