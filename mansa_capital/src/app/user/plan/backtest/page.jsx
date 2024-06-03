@@ -208,7 +208,7 @@ export default function StrategyTable() {
           Add a New Backtesting Sessin
         </Button>
       </div>
-      <Table className="rounded-sm overflow-hidden">
+      <Table className="rounded-lg overflow-hidden">
         <TableHeader>
           <TableRow>
             <TableHead className="text-center bg-[#174894] text-white">

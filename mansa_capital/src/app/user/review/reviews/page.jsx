@@ -138,13 +138,19 @@ const ThreeTabs = () => {
 
 const TradeTable = () => {
   return (
-    <Table>
+    <Table className="rounded-lg overflow-hidden">
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[100px]">Date</TableHead>
-          <TableHead>Pair</TableHead>
-          <TableHead>NetPnL</TableHead>
+          <TableHead className="w-[200px] text-center bg-[#174894] text-white">
+            Date
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Pair
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            NetPnL
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -180,22 +186,48 @@ const TradeTable = () => {
 };
 const DoneTrade = () => {
   return (
-    <Table>
+    <Table className="rounded-lg overflow-hidden">
       <TableHeader>
         <TableRow>
-          <TableHead>Trade No.</TableHead>
-          <TableHead>Pair</TableHead>
-          <TableHead>Phase</TableHead>
-          <TableHead>Setup</TableHead>
-          <TableHead>R</TableHead>
-          <TableHead>Result</TableHead>
-          <TableHead>Lot Size</TableHead>
-          <TableHead>Opened</TableHead>
-          <TableHead>Closed</TableHead>
-          <TableHead>Time in Trade</TableHead>
-          <TableHead>SL Size</TableHead>
-          <TableHead>Confluences (tags)</TableHead>
-          <TableHead>Notes</TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Trade No.
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Pair
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Phase
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Setup
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            R
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Result
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Lot Size
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Opened
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Closed
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Time in Trade
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            SL Size
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Confluences (tags)
+          </TableHead>
+          <TableHead className="text-center bg-[#174894] text-white">
+            Notes
+          </TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -426,7 +458,7 @@ export function setup() {
           </button>
         </div>
         <div className="flex flex-col">
-          <Table>
+          <Table className="rounded-lg overflow-hidden">
             <TableHeader>
               <TableRow>
                 <TableHead className="text-center bg-[#174894] text-white">

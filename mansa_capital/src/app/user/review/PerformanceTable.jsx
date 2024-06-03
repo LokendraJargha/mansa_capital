@@ -46,10 +46,12 @@ const PerformanceTable = () => {
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Performance Per Month</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-300">
+        <table className="min-w-full rounded-lg overflow-hidden ">
           <thead>
             <tr>
-              <th className="border border-gray-300 p-2"> </th>
+              <th className="text-center bg-[#174894] text-white h-12 px-4  align-middle font-medium text-muted-foreground">
+                {" "}
+              </th>
               {[
                 "Jan",
                 "Feb",
@@ -65,7 +67,7 @@ const PerformanceTable = () => {
                 "Dec",
                 "YTD",
               ].map((month, index) => (
-                <th key={index} className="border border-gray-300 p-2">
+                <th key={index} className="text-center bg-[#174894] text-white">
                   {month}
                 </th>
               ))}

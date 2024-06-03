@@ -38,8 +38,13 @@ export default function Register() {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      router.push("/auth/login");
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
     } catch (error) {
       toast.error("Something went wrong from Backend");
       console.log("Error occurred ", error);

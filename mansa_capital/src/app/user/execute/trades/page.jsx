@@ -177,7 +177,7 @@ export default function setup() {
         </button>
       </div>
       <div className="flex flex-col overflow-x-auto bg-white ">
-        <Table className="rounded-sm overflow-hidden">
+        <Table className="rounded-lg overflow-hidden">
           <TableHeader>
             <TableRow>
               <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
