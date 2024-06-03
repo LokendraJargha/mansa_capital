@@ -1,5 +1,6 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
+import { CredentialsSignin } from "next-auth"
 import { Login } from "@/app/api/controllers/authController"
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
@@ -13,12 +14,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
             authorize: async (credentials) => {
                 const user = await Login(credentials)
-
-                if (!user) {
-                    throw new Error("User not found.")
+                if(!user){
+                    throw new CredentialsSignin("Invalid Details")
                 }
-
-                // return user object with the their profile data
                 return user
             },
         }),

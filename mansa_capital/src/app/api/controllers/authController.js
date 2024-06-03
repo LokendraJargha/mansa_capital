@@ -7,6 +7,7 @@ export async function Register(data) {
     connectDB()
     try {
         const user = await userSchema.create({ ...data, password: await hashPassword(data.password) });
+        
         return true
     }
     catch (err) {
@@ -18,14 +19,18 @@ export async function Register(data) {
 
 //returns logged in user data or null if not logged in
 export async function Login(data) {
+    console.log("datais-------- ",data)
     connectDB()
-
     try {
         const user = await userSchema.findOne({ email: data.email })
-        const isPassMatch = comparePasswords(user.password, data.password)
+        console.log("user found is ",user)
+        if(!user) return null
+        const isPassMatch = comparePasswords(user?.password, data.password)
         if (!isPassMatch) {
             return null
         }
+        console.log("password match is  ",isPassMatch ,)
+
         //remove password from user object
         return { ...user._doc, password: undefined }
     }
