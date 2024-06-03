@@ -6,7 +6,15 @@ export default function Page () {
     action={async (formData) => {
       "use server";
       console.log(formData);
-      await signIn("credentials", formData);
+      try{
+
+        await signIn("credentials", formData);
+      }  
+      catch (err) {
+        console.log("err occured somthing occured",err)
+  
+      }
+    
     }}
   >
   <input type= "name" name="email"/>
