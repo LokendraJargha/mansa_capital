@@ -57,8 +57,8 @@ const columnData = [
 
 export default function setup() {
   return (
-    <div className=" flex m-2 p-2 rounded-sm  bg-white">
-      <Table>
+    <div className=" flex m-3 px-3 py-6 rounded-lg  bg-white">
+      <Table className="rounded-sm overflow-hidden">
         <TableHeader>
           <TableRow>
             <TableHead className="text-center bg-[#174894] text-white">

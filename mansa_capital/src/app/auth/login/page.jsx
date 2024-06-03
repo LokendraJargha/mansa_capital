@@ -8,6 +8,7 @@ export default function Page () {
       console.log(formData);
       try{
 
+
         await signIn("credentials", formData);
       }  
       catch (err) {

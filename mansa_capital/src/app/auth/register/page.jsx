@@ -49,7 +49,7 @@ export default function Register() {
   const password = watch("password");
 
   return (
-    <div className="flex flex-row m-2 p-2 rounded-sm  bg-white">
+    <div className="flex flex-row m-3 px-3 py-6  rounded-lg  bg-white">
       <div className="flex w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
         <img src="/images/Designer.png" />
       </div>

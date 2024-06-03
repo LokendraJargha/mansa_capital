@@ -35,8 +35,8 @@ import Education from "./education";
 export default function Settings() {
   return (
     <>
-      <div className="bg-white">
-        <div>
+      <div className="flex m-3 px-3 py-6 rounded-lg bg-white">
+        <div className="flex w-full">
           <div className="space-y-1 w-full ">
             <Profile />
             <Subscription />

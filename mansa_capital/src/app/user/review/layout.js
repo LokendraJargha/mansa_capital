@@ -3,7 +3,7 @@ import Calendar from "../calendar/page";
 export default function ReviewLayout({ children }) {
     return (
         <div
-         className="flex m-2 p-2 rounded-sm  bg-white">
+         className="flex m-3 px-3 py-6  rounded-lg  bg-white">
             <div className="flex flex-col">
 
             

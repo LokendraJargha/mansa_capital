@@ -8,7 +8,7 @@ export default function Action() {
 
 const WeeklyReflection = () => {
   return (
-    <div className="flex m-2 p-2 rounded-sm bg-white">
+    <div className="flex m-3 px-3 py-6  rounded-lg bg-white">
       <div className="flex flex-col gap-3 ">
         <p className="text-xl font-bold">Weekly Reflection</p>
         <p>On Scale of 1-10 , how happy were you this week and why?</p>

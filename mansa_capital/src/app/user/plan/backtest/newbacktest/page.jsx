@@ -34,7 +34,7 @@ export default function NewBacktest() {
   };
 
   return (
-    <div className="flex m-2 p-2 rounded-sm  bg-white">
+    <div className="flex m-3 px-3 py-6  rounded-lg  bg-white">
       <Card className="max-w-lg mx-auto mt-10 shadow-lg ">
         <CardHeader>
           <CardTitle className="text-center text-xl font-semibold">

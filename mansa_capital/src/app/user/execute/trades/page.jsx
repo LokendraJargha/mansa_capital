@@ -143,11 +143,11 @@ const columnData = [
 
 export default function setup() {
   return (
-    <>
+    <div className="flex flex-col m-3 px-3 py-6 rounded-lg bg-white">
       <div className="flex items-center justify-center my-4">
         <button
           variant="outline"
-          className="bg-[#174899] w-[20%] ml-2 hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
+          className="bg-[#174899] w-[20%]  hover:bg-[#174894] text-white hover:text-zinc-300 rounded-lg py-1.5"
         >
           Advanced Filters
         </button>
@@ -176,8 +176,8 @@ export default function setup() {
           All Setups
         </button>
       </div>
-      <div className="flex flex-col">
-        <Table className="overflow-x-auto">
+      <div className="flex flex-col overflow-x-auto bg-white ">
+        <Table className="rounded-sm overflow-hidden">
           <TableHeader>
             <TableRow>
               <TableHead className="text-center bg-[#174894] text-white whitespace-nowrap">
@@ -265,6 +265,6 @@ export default function setup() {
           </TableBody>
         </Table>
       </div>
-    </>
+    </div>
   );
 }
