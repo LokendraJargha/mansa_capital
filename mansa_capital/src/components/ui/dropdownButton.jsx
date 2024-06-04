@@ -8,8 +8,9 @@ import {
   FaSignOutAlt,
   FaChevronRight,
 } from "react-icons/fa";
-
+import useAuthStore from "../../../config/userStore";
 const DropdownMenu = () => {
+  const { loggedInUserData } = useAuthStore();
   return (
     <div className="absolute w-64 bg-white dark:bg-zinc-800 p-4 shadow-lg z-50 top-16 right-4">
       <div className="flex items-center space-x-4 p-2">
@@ -23,7 +24,7 @@ const DropdownMenu = () => {
         />
         <div className="flex-1">
           <h4 className="text-base font-semibold text-zinc-700 dark:text-zinc-100">
-            Thomas Anree
+            dksjfhdksj
           </h4>
         </div>
         <div className="text-zinc-400">{/* <FaChevronRight /> */}</div>

@@ -2,8 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaUser, FaCog, FaSignOutAlt } from "react-icons/fa";
 import Link from "next/link";
+import useAuthStore from "../../../config/userStore";
 
 const Header = () => {
+  const { loggedInUserData } = useAuthStore();
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -57,7 +59,12 @@ const Header = () => {
             className="w-10 h-10 rounded-full"
           />
           <div className="text-left">
-            <div className="text-sm font-medium text-white">Thomas Anree</div>
+            <div className="text-sm font-medium text-white">
+              {" "}
+              {loggedInUserData
+                ? loggedInUserData.first_name + " " + loggedInUserData.last_name
+                : "Thomas Anreeas"}
+            </div>
             <div className="text-xs text-white">UX Designer</div>
           </div>
           <svg

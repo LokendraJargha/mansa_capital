@@ -1,4 +1,3 @@
-import { CreditCard } from "lucide-react";
 import { Payment } from "../controllers/authController";
 export async function POST(req) {
   const data = await req.json();
@@ -17,6 +16,6 @@ export async function POST(req) {
   const user = await Register(newData);
 
   if (user) {
-    return Response.json({ message: "User Created Successfully" });
+    return Response.json({ message: "PaidSuccessfully" });
   }
 }

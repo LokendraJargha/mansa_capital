@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuthStore from "../../../../config/userStore";
 import {
   Card,
   CardHeader,
@@ -18,6 +19,7 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export default function Login_Page() {
+  const { setLoggedInUserData, setToken } = useAuthStore();
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [activePasswordInput, setActivePasswordInput] = useState(false);
@@ -40,7 +42,10 @@ export default function Login_Page() {
       });
 
       if (res.ok) {
-        await router.push("/user/settings");
+        const data = await res.json();
+        setToken(data.token);
+        setLoggedInUserData(data.user);
+        router.push("/user/review/actions");
       } else {
         toast.error("Login failed");
       }

@@ -17,6 +17,8 @@
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "jose": "^5.4.0",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.378.0",
     "mongodb": "^6.6.2",
     "mongoose": "^8.4.0",
@@ -30,9 +32,12 @@
     "react-icons": "^5.2.1",
     "react-toastify": "^10.0.5",
     "reactjs-popup": "^2.0.6",
+    "stripe": "^15.9.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "yup": "^1.4.0"
+    "yup": "^1.4.0",
+    "zustand": "^4.5.2",
+    "zustand-persist": "^0.4.0"
   },
   "devDependencies": {
     "eslint": "^8",
