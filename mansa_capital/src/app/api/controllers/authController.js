@@ -1,6 +1,7 @@
 import { hashPassword, comparePasswords } from "../helpers/helpers";
 import userSchema from "../../../../models/userSchema";
 import connectDB from "../../../../config/database";
+import UserAccount from "../../../../models/userAccountSchema";
 
 //returns true if user is created successfully
 export async function Register(data) {
@@ -38,5 +39,15 @@ export async function Login(data) {
         console.log(err)
         return null
     }
-
 }
+
+// export async function Logout() {
+//     connectDB()
+//     try {
+//         return { message: "Logout successful" };
+//     }
+//     catch (err) {
+//         console.log(err)
+//         return null
+//     }
+// }

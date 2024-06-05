@@ -1,13 +1,18 @@
+"use client";
 import Calendar from "../calendar/page";
-
+import useAuthStore from "../../../../config/userStore";
 export default function ReviewLayout({ children }) {
+   
+    const { loggedInUserData } = useAuthStore();
     return (
         <div
          className="flex m-3 px-3 py-6  rounded-lg  bg-white">
             <div className="flex flex-col">
 
             
-            <div>Good morning , Adil Khan</div>
+            <div>Good morning ,  {loggedInUserData
+              ? loggedInUserData.first_name + " " + loggedInUserData.last_name
+              : "Thomas Anreeas"}</div>
             <div className="w-full flex justify-end gap-2">
                 <li>$</li>
                 <li>Advanced Filters</li>

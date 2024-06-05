@@ -5,7 +5,7 @@ import Link from "next/link";
 import useAuthStore from "../../../config/userStore";
 
 const Header = () => {
-  const { loggedInUserData } = useAuthStore();
+  const { loggedInUserData, clearAuthData } = useAuthStore();
   const [showDropdownMenu, setShowDropdownMenu] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -102,7 +102,7 @@ const Header = () => {
                 <Link
                   href="/auth/login"
                   className="flex flex-row"
-                  onClick={handleLinkClick}
+                  onClick={handleLinkClick && clearAuthData}
                 >
                   <FaSignOutAlt className="mr-2" />
                   <span>Logout</span>

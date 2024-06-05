@@ -6,7 +6,6 @@ import { jwtVerify } from 'jose';
 export async function middleware(req) {
   // Example: Basic authentication check
   const token= req?.headers?.get('Authorization')?.split("Bearer ")[1]
-  console.log("token",token)
   if(token){
   
     const isValid=await verifyToken(token,process.env.JWT_SECRET) 

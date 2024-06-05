@@ -9,8 +9,10 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
+import useAuthStore from "../../../../config/userStore";
 
 const AddAccount = ({ onAddAccount }) => {
+  const { loggedInUserData } = useAuthStore();
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
@@ -23,16 +25,42 @@ const AddAccount = ({ onAddAccount }) => {
     setShowPassword(!showPassword);
   };
 
-  const onSubmit = (data) => {
-    onAddAccount(data);
-    toast.success("Account added successfully!");
-    reset(); // Clear the form
+  const onSubmit = async (data) => {
+    try {
+      console.log("Form data:", data); // Log the form data
+      const res = await fetch("/api/account", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.mansa_capital_token}`,
+        },
+        body: JSON.stringify(data),
+      });
+      console.log("Response:", res); // Log the response
+      if (res.ok) {
+        toast("Account created successfully");
+        reset(); // Reset the form after successful submission
+      } else {
+        toast.error("Account submission failed");
+      }
+    } catch (error) {
+      toast.error("Something went wrong from Backend");
+      console.log("Error occurred ", error);
+    }
   };
 
   return (
     <div className="flex w-full">
       <Card className="flex flex-col w-full bg-yellow-50 rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="hidden"
+            value={
+              loggedInUserData
+                ? loggedInUserData.email
+                : "thomasanres@gmail.com"
+            }
+            {...register("createdBy")}
+          />
           <CardContent className="space-y-2 my-4 py-4">
             <div className="flex flex-row w-full">
               <Label
@@ -182,7 +210,7 @@ const AddAccount = ({ onAddAccount }) => {
                 )}
               </div>
             </div>
-            <div className="flex flex-row">
+            {/* <div className="flex flex-row">
               <Label
                 className="w-2/5 text-sm text-muted-foreground text-right mr-4"
                 htmlFor="signalDelivery"
@@ -191,7 +219,8 @@ const AddAccount = ({ onAddAccount }) => {
               </Label>
               <div className="flex flex-col w-full">
                 <div className="flex items-center">
-                  <Checkbox id="app" {...register("signalDelivery")} />
+                  <Checkbox id="app" {...register("app")} />
+
                   <Label
                     htmlFor="app"
                     className="text-sm font-medium leading-none ml-2"
@@ -200,7 +229,7 @@ const AddAccount = ({ onAddAccount }) => {
                   </Label>
                 </div>
                 <div className="flex items-center mt-2">
-                  <Checkbox id="email" {...register("signalDelivery")} />
+                  <Checkbox id="email" {...register("email")} />
                   <Label
                     htmlFor="email"
                     className="text-sm font-medium leading-none ml-2"
@@ -209,7 +238,7 @@ const AddAccount = ({ onAddAccount }) => {
                   </Label>
                 </div>
                 <div className="flex items-center mt-2">
-                  <Checkbox id="sms" {...register("signalDelivery")} />
+                  <Checkbox id="sms" {...register("sms")} />
                   <Label
                     htmlFor="sms"
                     className="text-sm font-medium leading-none ml-2"
@@ -218,16 +247,16 @@ const AddAccount = ({ onAddAccount }) => {
                   </Label>
                 </div>
                 <div className="flex items-center mt-2">
-                  <Checkbox id="discord" {...register("signalDelivery")} />
+                  <Checkbox id="discord" {...register("discord")} />
                   <Label
                     htmlFor="discord"
                     className="text-sm font-medium leading-none ml-2"
                   >
-                    Discord
+                    Discords
                   </Label>
                 </div>
                 <div className="flex items-center mt-2">
-                  <Checkbox id="telegram" {...register("signalDelivery")} />
+                  <Checkbox id="telegram" {...register("telegram")} />
                   <Label
                     htmlFor="telegram"
                     className="text-sm font-medium leading-none ml-2"
@@ -236,7 +265,7 @@ const AddAccount = ({ onAddAccount }) => {
                   </Label>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="flex flex-row">
               <Label
                 className="w-2/5 text-sm text-muted-foreground text-right mr-4"
@@ -277,7 +306,6 @@ const AddAccount = ({ onAddAccount }) => {
                 <Input
                   className={`w-full ${errors.csv ? "border-red-500" : ""}`}
                   id="csv"
-                  type="file"
                   {...register("csv", { required: "CSV file is required" })}
                 />
                 {errors.csv && (
