@@ -13,7 +13,7 @@ const Accounts = () => {
   const [showAddAccount, setShowAddAccount] = useState(false);
 
   const fetchAccountData = async () => {
-    console.log("User data:", loggedInUserData.email);
+    console.log("User data:", loggedInUserData?.email);
     try {
       const response = await fetch("/api/account", {
         headers: {

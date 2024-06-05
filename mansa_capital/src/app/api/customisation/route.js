@@ -1,7 +1,6 @@
 import { insert, showAll } from "../controllers/customisationController";
 export async function POST(req) {
   const data = await req.json();
-  console.log("inside post");
   const newData = {
     screen_mode: data.screenMode,
     base_timezone: data.baseTimezone,
@@ -23,7 +22,6 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  console.log("inside get");
   const res = await showAll();
   return Response.json(res);
 }
