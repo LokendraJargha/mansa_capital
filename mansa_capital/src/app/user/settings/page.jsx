@@ -23,7 +23,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import Profile from "./profile";
 import Subscription from "./subscription";
 import Accounts from "./accounts";
-import Customisation from "./customization";
+import Customisation from "./customisation";
 import TradeSettings from "./trade";
 import Session from "./sessions";
 import Probablity from "./probability";
