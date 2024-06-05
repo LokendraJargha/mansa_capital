@@ -1,7 +1,9 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import AddAccount from "./addaccount";
+import ShowAccount from "./showAccount";
 import { Plus } from "lucide-react";
 import useAuthStore from "../../../../config/userStore";
 
@@ -10,6 +12,8 @@ const Accounts = () => {
   const [accountData, setAccountData] = useState(null);
   const [accounts, setAccounts] = useState([]);
   const [showAddAccount, setShowAddAccount] = useState(false);
+  const [showClickedAccount, setShowClickedAccount] = useState(false);
+  const [selectedAccount, setSelectedAccount] = useState(null);
 
   const fetchAccountData = async () => {
     console.log("User data:", loggedInUserData.email);
@@ -33,11 +37,26 @@ const Accounts = () => {
 
   const handleAddButtonClick = (event) => {
     event.preventDefault();
-    setShowAddAccount((prevState) => !prevState);
+    setShowAddAccount(true);
+    setShowClickedAccount(false);
+    setSelectedAccount(null);
   };
 
   const handleAddAccount = (newAccount) => {
+    console.log("New account:", newAccount);
     setAccounts((prevAccounts) => [...prevAccounts, newAccount]);
+    setShowAddAccount(false);
+  };
+
+  const handleShowAccount = (account) => {
+    setSelectedAccount(account);
+    setShowClickedAccount(true);
+    setShowAddAccount(false);
+  };
+
+  const handleEditAccount = () => {
+    // Logic to handle account edit, e.g., show a form with editable fields
+    console.log("Editing account:", selectedAccount);
   };
 
   return (
@@ -53,10 +72,10 @@ const Accounts = () => {
             {accountData ? (
               accountData.map((account, index) => (
                 <li key={index}>
-                  {loggedInUserData.email === account.created_by ? (
-                    <Button>{account.account_number}</Button>
-                  ) : (
-                    <Button>hello</Button>
+                  {loggedInUserData.email === account.created_by && (
+                    <Button onClick={() => handleShowAccount(account)}>
+                      {account.account_number}
+                    </Button>
                   )}
                 </li>
               ))
@@ -68,6 +87,9 @@ const Accounts = () => {
       </div>
       <div className="flex w-3/5">
         {showAddAccount && <AddAccount onAddAccount={handleAddAccount} />}
+        {showClickedAccount && selectedAccount && (
+          <ShowAccount account={selectedAccount} onEdit={handleEditAccount} />
+        )}
       </div>
     </div>
   );
