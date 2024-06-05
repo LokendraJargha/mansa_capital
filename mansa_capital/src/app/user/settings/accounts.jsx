@@ -6,6 +6,7 @@ import AddAccount from "./addaccount";
 import ShowAccount from "./showAccount";
 import { Plus } from "lucide-react";
 import useAuthStore from "../../../../config/userStore";
+import { CornerDownRight } from "lucide-react";
 
 const Accounts = () => {
   const { loggedInUserData } = useAuthStore();
@@ -73,9 +74,13 @@ const Accounts = () => {
               accountData.map((account, index) => (
                 <li key={index}>
                   {loggedInUserData.email === account.created_by && (
-                    <Button onClick={() => handleShowAccount(account)}>
-                      {account.account_number}
-                    </Button>
+                    <p
+                      onClick={() => handleShowAccount(account)}
+                      className="m-4 cursor-pointer hover:underline  flex gap-3 items-center"
+                    >
+                      Account {account.account_number}
+                      <CornerDownRight className="flex justify-end" size={16} />
+                    </p>
                   )}
                 </li>
               ))

@@ -1,18 +1,41 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { ToastContainer, toast } from "react-toastify";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import useAuthStore from "../../../../config/userStore";
 
 const Customisation = () => {
+  const { loggedInUserData } = useAuthStore();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      console.log("Form data:", data); // Log the form data
+      const res = await fetch("/api/customisation", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.mansa_capital_token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log("Response:", res); // Log the response
+      if (res.ok) {
+        toast("Customisation created successfully");
+        reset(); // Reset the form after successful submission
+      } else {
+        toast.error("Customisation submission failed");
+      }
+    } catch (error) {
+      toast.error("Something went wrong from Backend");
+      console.log("Error occurred ", error);
+    }
   };
 
   return (
@@ -22,6 +45,15 @@ const Customisation = () => {
         <Card className="w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent className="space-y-2 my-4 py-4">
+              <input
+                type="hidden"
+                value={
+                  loggedInUserData
+                    ? loggedInUserData.email
+                    : "thomasanres@gmail.com"
+                }
+                {...register("createdBy")}
+              />
               <div className="flex flex-row">
                 <Label
                   className="w-1/3 text-sm text-muted-foreground mr-4"
