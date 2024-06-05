@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import AddAccount from "./addaccount";
 import { Plus } from "lucide-react";
 import useAuthStore from "../../../../config/userStore";
+import { CornerDownRight } from "lucide-react";
 
 const Accounts = () => {
   const { loggedInUserData } = useAuthStore();
@@ -41,7 +42,7 @@ const Accounts = () => {
   };
 
   return (
-    <div className="flex w-full ">
+    <div className="flex w-full m-4">
       <div className="flex w-2/5">
         <div className="flex w-1/2 m-4 text-lg">ACCOUNTS</div>
         <div className="flex w-1/2 m-4">
@@ -54,7 +55,10 @@ const Accounts = () => {
               accountData.map((account, index) => (
                 <li key={index}>
                   {loggedInUserData.email === account.created_by ? (
-                    <Button>{account.account_number}</Button>
+                    <p className="m-4 cursor-pointer hover:underline  flex gap-3 items-center">
+                      Account {account.account_number}
+                      <CornerDownRight className="flex justify-end" size={16} />
+                    </p>
                   ) : (
                     <Button>hello</Button>
                   )}
