@@ -22,6 +22,7 @@ const CustomisationSchema = new Schema({
         unique: true,
         type: String,
         required: true,
+        index: true,
     },
     language: {
         type: String,

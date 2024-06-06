@@ -6,12 +6,19 @@ export async function insert(data) {
     try {
         console.log("Connecting to the database...");
         await connectDB();
-
+        const alreadyExist = await CustomisationSchema.findOne({ created_by: data.created_by });
         console.log("Inserting user data:", data);
-        const user = await CustomisationSchema.create({ ...data});
-
-        console.log("User inserted successfully.");
-        return true;
+        //if already exist then update else 
+        if (alreadyExist) {
+            console.log("User already exist");
+            await CustomisationSchema.findOneAndUpdate({ created_by: data.created_by }, { $set: { ...data } }, { new: true });
+            return true;
+        }
+        else {
+            console.log("User does not exist");
+            await CustomisationSchema.create({ ...data });
+            return true;
+        }
     } catch (err) {
         console.error("Error inserting user data:", err);
         return false;
@@ -19,13 +26,8 @@ export async function insert(data) {
 }
 export async function showAll() {
     try {
-        console.log("Connecting to the database...");
         await connectDB();
-
-        console.log("Fetching all customisation data...");
-        const items = await CustomisationSchema.find();
-
-        console.log("Customized data fetched successfully.");
+        const items = await CustomisationSchema.findOne();
         return items;
     } catch (err) {
         console.error("Error fetching customisation data", err);
