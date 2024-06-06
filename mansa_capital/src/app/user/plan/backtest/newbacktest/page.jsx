@@ -13,23 +13,40 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAuthStore from "../../../../../../config/userStore";
 
 export default function NewBacktest() {
+  const { loggedInUserData } = useAuthStore();
   const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      // Handle form submission logic here
-      console.log(data);
-      await router.push("/user/plan/backtest");
+      console.log("Form data:", data); // Log the form data
+      const res = await fetch("/api/backtest", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${localStorage.mansa_capital_token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log("Response:", res); // Log the response
+      if (res.ok) {
+        toast("New Backtest created successfully");
+        await router.push("/user/plan/backtest");
+        reset(); // Reset the form after successful submission
+      } else {
+        toast.error("Backtest submission failed");
+      }
     } catch (error) {
-      toast.error("Something went Wrong from Backend");
-      console.log("Error Occured ", error);
+      toast.error("Something went wrong from Backend");
+      console.log("Error occurred ", error);
     }
   };
 

@@ -2,25 +2,26 @@ import { Schema, model, models } from 'mongoose';
 
 const backtestSchema = new Schema({
 
-    balanceInUsd: {
+    balance_in_usd: {
         type: Number,
         required: true
     },
     pairs: {
         type: String,
     },
-    startDate: {
+    start_date: {
         type: Date,
         required: true,
     },
-    endDate: {
+    end_date: {
         type: Date,
         required: true,
     },
     strategy: {
         type: String,
+        required: true,
     },
-    sessionName: {
+    session_name: {
         type: String
     },
     description: {

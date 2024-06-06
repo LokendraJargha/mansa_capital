@@ -54,13 +54,11 @@ const Accounts = () => {
             {accountData ? (
               accountData.map((account, index) => (
                 <li key={index}>
-                  {loggedInUserData.email === account.created_by ? (
+                  {loggedInUserData.email === account.created_by && (
                     <p className="m-4 cursor-pointer hover:underline  flex gap-3 items-center">
                       Account {account.account_number}
                       <CornerDownRight className="flex justify-end" size={16} />
                     </p>
-                  ) : (
-                    <Button>hello</Button>
                   )}
                 </li>
               ))
