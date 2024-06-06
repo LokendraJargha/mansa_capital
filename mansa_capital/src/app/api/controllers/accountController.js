@@ -35,31 +35,3 @@ export async function showAll() {
     }
 }
 
-// export async function showAll(data) {
-//   await connectDB();
-
-//   try {
-
-
-//   console.log("inside try");
-
-//   console.log("creartedBy is ", data);
-
-//   console.log("created_by is ", data.created_by);
-//     const users = await userAccountSchema.find({ created_by: data.created_by });
-//     console.log("created By found is ", users);
-
-//     if (!users || users.length === 0) return null;
-
-//     // Remove password from each user object
-//     const sanitizedUsers = users.map(user => {
-//       const { password, ...rest } = user._doc;
-//       return rest;
-//     });
-
-//     return sanitizedUsers;
-//   } catch (err) {
-//     console.log(err);
-//     return null;
-//   }
-// }
