@@ -60,6 +60,15 @@ export default function NewBacktest() {
         </CardHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
           <CardContent className="space-y-2">
+            <input
+              type="hidden"
+              value={
+                loggedInUserData
+                  ? loggedInUserData.email
+                  : "thomasanres@gmail.com"
+              }
+              {...register("createdBy")}
+            />
             <div>
               <Label className="text-gray-600" htmlFor="accountBalance">
                 ACCOUNT BALANCE
