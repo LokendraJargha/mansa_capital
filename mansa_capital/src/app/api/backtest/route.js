@@ -1,21 +1,27 @@
-import { showAll, insert } from "../controllers/backtestController";
+import { insert, showAll } from "../controllers/backtestController";
+export async function POST(req) {
+  const data = await req.json();
+  const newData = {
+    balance_in_usd: data.accountBalance,
+    pairs: data.pairs,
+    start_date: data.startDate,
+    end_date: data.endDate,
+    strategy: data.strategy,
+    session_name: data.sessionName,
+    description: data.description,
+  };
+  const custom = await insert(newData);
 
-export async function GET() {
-
-    const data = await req.json();
-    const account = await insert(data);
-    if (account) {
-        return Response.json({ message: "UserAccount created Successfully" });
-    }
-    else
-        return Response.json(
-            { message: "UserAccount creation failed" },
-            { status: 500 }
-        );
-
+  if (custom) {
+    return Response.json({ message: "Customisation data added Successfully" });
+  }
+  return Response.json(
+    { message: "Customisation creation failed" },
+    { status: 500 }
+  );
 }
 
-export async function POST() {
-    const res = await showAll();
-    return Response.json(res);
+export async function GET() {
+  const res = await showAll();
+  return Response.json(res);
 }

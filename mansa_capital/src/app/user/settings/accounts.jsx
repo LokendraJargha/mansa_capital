@@ -4,17 +4,16 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import AddAccount from "./addaccount";
 import ShowAccount from "./showAccount";
-import { Plus } from "lucide-react";
+import { Plus, CornerDownRight } from "lucide-react";
 import useAuthStore from "../../../../config/userStore";
-import { CornerDownRight } from "lucide-react";
 
 const Accounts = () => {
   const { loggedInUserData } = useAuthStore();
   const [accountData, setAccountData] = useState(null);
-  const [accounts, setAccounts] = useState([]);
   const [showAddAccount, setShowAddAccount] = useState(false);
   const [showClickedAccount, setShowClickedAccount] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState(null);
+  const [isAddAccountClicked, setIsAddAccountClicked] = useState(false);
 
   const fetchAccountData = async () => {
     console.log("User data:", loggedInUserData?.email);
@@ -36,23 +35,37 @@ const Accounts = () => {
     fetchAccountData();
   }, []);
 
+  useEffect(() => {
+    if (accountData && accountData.length > 0) {
+      const lastAccount = accountData[accountData.length - 1];
+      setSelectedAccount(lastAccount);
+      setShowClickedAccount(true);
+      setShowAddAccount(false);
+    }
+  }, [accountData]);
+
   const handleAddButtonClick = (event) => {
     event.preventDefault();
     setShowAddAccount(true);
     setShowClickedAccount(false);
     setSelectedAccount(null);
+    setIsAddAccountClicked(true);
   };
 
   const handleAddAccount = (newAccount) => {
     console.log("New account:", newAccount);
-    setAccounts((prevAccounts) => [...prevAccounts, newAccount]);
+    setAccountData((prevAccountData) => [...prevAccountData, newAccount]);
+    setSelectedAccount(newAccount);
     setShowAddAccount(false);
+    setShowClickedAccount(true);
+    setIsAddAccountClicked(false);
   };
 
   const handleShowAccount = (account) => {
     setSelectedAccount(account);
     setShowClickedAccount(true);
     setShowAddAccount(false);
+    setIsAddAccountClicked(false);
   };
 
   const handleEditAccount = () => {
@@ -61,24 +74,22 @@ const Accounts = () => {
   };
 
   return (
-    <div className="flex w-full ">
+    <div className="flex w-full">
       <div className="flex w-2/5">
-        <div className="flex w-1/2 m-4 text-lg">ACCOUNTS</div>
-        <div className="flex w-1/2 m-4">
-          <ul className="text-sm text-muted-foreground">
-            <Button className="m-4 bg-[#174894]" onClick={handleAddButtonClick}>
-              <Plus className="mr-2" />
-              Add Account
-            </Button>
+        <div className="lex w-1/2 m-4 text-lg">ACCOUNTS</div>
+        <div className="flex w-1/2">
+          <ul className="flex w-full flex-col-reverse text-sm text-muted-foreground items-start justify-end">
             {accountData ? (
               accountData.map((account, index) => (
-                <li key={index}>
+                <li key={index} className="w-full">
                   {loggedInUserData.email === account.created_by && (
                     <p
                       onClick={() => handleShowAccount(account)}
-                      className="m-4 cursor-pointer hover:underline  flex gap-3 items-center"
+                      className={`w-full p-4 rounded-lg cursor-pointer hover:underline flex items-center ${
+                        selectedAccount === account ? "bg-yellow-50" : ""
+                      }`}
                     >
-                      Account {account.account_number}
+                      Account: {account.account_number}
                       <CornerDownRight className="flex justify-end" size={16} />
                     </p>
                   )}
@@ -87,6 +98,19 @@ const Accounts = () => {
             ) : (
               <li>Loading...</li>
             )}
+            <li
+              className={`flex w-full rounded-lg ${
+                isAddAccountClicked ? "bg-yellow-50" : ""
+              }`}
+            >
+              <Button
+                className="m-4 bg-[#174894]"
+                onClick={handleAddButtonClick}
+              >
+                <Plus className="mr-2" />
+                Add Account
+              </Button>
+            </li>
           </ul>
         </div>
       </div>
