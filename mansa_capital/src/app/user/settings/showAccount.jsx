@@ -73,7 +73,7 @@ const ShowAccount = ({ account, onEdit }) => {
 
   return (
     <div className="flex w-full">
-      <Card className="flex flex-col w-full bg-yellow-50 rounded-lg">
+      <Card className="flex max-w-full flex-col w-full bg-yellow-50 rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="hidden"

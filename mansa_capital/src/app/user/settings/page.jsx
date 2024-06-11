@@ -31,6 +31,10 @@ import Privacy from "./privacy";
 import Pullbacks from "./pullbacks";
 import Tags from "./tags";
 import Education from "./education";
+import History from "./history";
+import Performance from "./performance";
+import Instruments from "./instruments";
+import Data from "./data";
 
 export default function Settings() {
   return (
@@ -59,33 +63,3 @@ export default function Settings() {
     </>
   );
 }
-
-const Data = () => {
-  return (
-    <div>
-      <div>DATA</div>
-    </div>
-  );
-};
-const Performance = () => {
-  return (
-    <div>
-      <div>PERFORMANCE</div>
-    </div>
-  );
-};
-const Instruments = () => {
-  return (
-    <div>
-      <div>INSTRUMENTS</div>
-    </div>
-  );
-};
-
-const History = () => {
-  return (
-    <div>
-      <div>HISTORY</div>
-    </div>
-  );
-};

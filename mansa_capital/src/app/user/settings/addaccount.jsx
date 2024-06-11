@@ -39,6 +39,7 @@ const AddAccount = ({ onAddAccount }) => {
       if (res.ok) {
         toast("Account created successfully");
         reset(); // Reset the form after successful submission
+        window.location.reload(); // Reload the page
       } else {
         toast.error("Account submission failed");
       }
@@ -50,7 +51,7 @@ const AddAccount = ({ onAddAccount }) => {
 
   return (
     <div className="flex w-full">
-      <Card className="flex flex-col w-full bg-yellow-50 rounded-lg">
+      <Card className="flex flex-col max-w-full w-full bg-yellow-50 rounded-lg">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="hidden"
@@ -317,7 +318,7 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
           </CardContent>
           <CardFooter>
-            <Button className="flex" type="submit">
+            <Button className="px-16" type="submit">
               Submit
             </Button>
           </CardFooter>

@@ -16,13 +16,22 @@ const Accounts = () => {
   const [isAddAccountClicked, setIsAddAccountClicked] = useState(false);
 
   const fetchAccountData = async () => {
-    console.log("User data:", loggedInUserData?.email);
+    const userEmail = loggedInUserData?.email;
+    console.log("User data:", userEmail);
+
     try {
-      const response = await fetch("/api/account", {
+      const response = await fetch(`/api/account?created_by=${userEmail}`, {
         headers: {
           Authorization: `Bearer ${localStorage.mansa_capital_token}`,
         },
+        method: "GET",
+        accept: loggedInUserData?.email,
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
       const data = await response.json();
       setAccountData(data);
       console.log("Account data fetched:", data);
@@ -30,7 +39,6 @@ const Accounts = () => {
       console.error("Error fetching Account data:", error);
     }
   };
-
   useEffect(() => {
     fetchAccountData();
   }, []);
@@ -41,6 +49,12 @@ const Accounts = () => {
       setSelectedAccount(lastAccount);
       setShowClickedAccount(true);
       setShowAddAccount(false);
+      setIsAddAccountClicked(false);
+    } else {
+      setShowAddAccount(true);
+      setShowClickedAccount(false);
+      setSelectedAccount(null);
+      setIsAddAccountClicked(true);
     }
   }, [accountData]);
 
@@ -96,7 +110,7 @@ const Accounts = () => {
                 </li>
               ))
             ) : (
-              <li>Loading...</li>
+              <li className="p-4">No account found</li>
             )}
             <li
               className={`flex w-full rounded-lg ${

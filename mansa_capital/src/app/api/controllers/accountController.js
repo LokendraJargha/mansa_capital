@@ -8,14 +8,14 @@ export async function insert(data) {
         console.log("Connecting to the database...");
         await connectDB();
 
-        console.log("Inserting user data:", data);
+        console.log("Inserting user account:", data);
         const hashedPassword = await hashPassword(data.password);
         const user = await userAccountSchema.create({ ...data, password: hashedPassword });
 
-        console.log("User inserted successfully.");
+        console.log("Account inserted successfully.");
         return true;
     } catch (err) {
-        console.error("Error inserting user data:", err);
+        console.error("Error inserting user account:", err);
         return false;
     }
 }
@@ -34,4 +34,26 @@ export async function showAll() {
         return [];
     }
 }
+
+export async function getById(email) {
+    try {
+      console.log('Fetching accounts created by:', email);
+      await connectDB(); // Ensure the database connection is successful
+  
+      // Find accounts where the 'created_by' field matches the provided email
+      const accounts = await userAccountSchema.find({ created_by: email });
+  
+      if (!accounts || accounts.length === 0) {
+        console.log('No accounts found for:', email);
+        return []; // Return empty array if no accounts are found
+      }
+  
+      console.log('Accounts fetched successfully.');
+      return accounts;
+    } catch (err) {
+      console.error('Error fetching accounts:', err);
+      throw new Error('Failed to fetch accounts'); // Rethrow the error to propagate it further
+    }
+  }
+
 
