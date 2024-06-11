@@ -59,7 +59,7 @@ export default function NewBacktest() {
           </CardTitle>
         </CardHeader>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-2">
+          <CardContent className="space-y-4">
             <input
               type="hidden"
               value={
@@ -218,11 +218,8 @@ export default function NewBacktest() {
               />
             </div>
           </CardContent>
-          <CardFooter className="flex justify-end">
-            <Button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
-            >
+          <CardFooter className="flex justify-center">
+            <Button type="submit" className="px-16">
               SUBMIT
             </Button>
           </CardFooter>

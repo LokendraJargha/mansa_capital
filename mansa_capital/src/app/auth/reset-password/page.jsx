@@ -95,143 +95,149 @@ export default function ResetPassword() {
   };
 
   return (
-    <div className="flex flex-row m-3 px-3 py-6  rounded-lg  bg-white">
-      <div className="flex w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
-        <img src="/images/Designer.png" />
-      </div>
-      <Card className="w-1/2 ring-2 border rounded-sm ring-gray-200 p-4 m-4">
-        <CardHeader>
-          <CardTitle>Sign In to Your Account</CardTitle>
-        </CardHeader>
-        {emailForReset ? (
-          <form onSubmit={handleSubmit(handlePasswordReset)}>
-            <CardContent className="space-y-2">
-              <input
-                type="hidden"
-                value={emailForReset}
-                {...register("email")}
-              />
-              <div className="space-y-1">
-                <Label htmlFor="token">Token</Label>
-                <Input
-                  id="token"
-                  name="token"
-                  type="text"
-                  {...register("token", {
-                    required: "Token is required",
-                    pattern: {
-                      message: "Invalid token",
-                    },
-                  })}
-                  className={`${
-                    errors.token ? "border-red-500" : "border-input"
-                  }`}
+    <div className="relative min-h-screen">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: 'url("/images/auth.jpg")' }}
+      ></div>
+      <div className="flex justify-center items-center absolute inset-0 bg-gradient-to-r from-blue-300 via-purple-400 to-purple-500 opacity-70"></div>
+      <div className="flex justify-center items-center min-h-screen">
+        <Card className="flex flex-col justify-center w-full max-w-sm border rounded-lg ring-gray-200 px-2 mx-2 bg-white bg-opacity-100 backdrop-blur-lg">
+          <CardHeader>
+            <CardTitle>Sign In to Your Account</CardTitle>
+          </CardHeader>
+          {emailForReset ? (
+            <form onSubmit={handleSubmit(handlePasswordReset)}>
+              <CardContent className="space-y-2">
+                <input
+                  type="hidden"
+                  value={emailForReset}
+                  {...register("email")}
                 />
-                {errors.token && (
-                  <span className="text-xs text-red-500">
-                    {errors.token.message}
-                  </span>
-                )}
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="password">PASSWORD</Label>
-                <div
-                  className={`flex h-10 w-full rounded-md border ${
-                    errors.password ? "border-red-500" : "border-input"
-                  } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                    showPassword && "ring-2 ring-ring ring-offset-2"
-                  }`}
-                >
-                  <input
-                    id="password"
-                    className="border-none outline-none w-full"
-                    type={showPassword ? "text" : "password"}
-                    {...register("password", {
-                      required: "Password is required",
+                <div className="space-y-1">
+                  <Label htmlFor="token">Token</Label>
+                  <Input
+                    id="token"
+                    name="token"
+                    type="text"
+                    {...register("token", {
+                      required: "Token is required",
+                      pattern: {
+                        message: "Invalid token",
+                      },
                     })}
+                    className={`${
+                      errors.token ? "border-red-500" : "border-input"
+                    }`}
                   />
-                  <button type="button" onClick={togglePasswordVisibility}>
-                    {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-                  </button>
+                  {errors.token && (
+                    <span className="text-xs text-red-500">
+                      {errors.token.message}
+                    </span>
+                  )}
                 </div>
-                {errors.password && (
-                  <span className="text-red-500 text-xs">
-                    {errors.password.message}
-                  </span>
-                )}
-              </div>
-              <div className="space-y-1">
-                <Label htmlFor="confirmPassword">CONFIRM PASSWORD</Label>
-                <div
-                  className={`flex h-10 w-full rounded-md border ${
-                    errors.confirmPassword ? "border-red-500" : "border-input"
-                  } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
-                    showConfirmPassword && "ring-2 ring-ring ring-offset-2"
-                  }`}
-                >
-                  <input
-                    id="confirmPassword"
-                    className="border-none outline-none w-full"
-                    type={showConfirmPassword ? "text" : "password"}
-                    {...register("confirmPassword", {
-                      required: "Confirm password is required",
-                    })}
-                  />
-                  <button
-                    type="button"
-                    onClick={toggleConfirmPasswordVisibility}
+                <div className="space-y-1">
+                  <Label htmlFor="password">PASSWORD</Label>
+                  <div
+                    className={`flex h-10 w-full rounded-md border ${
+                      errors.password ? "border-red-500" : "border-input"
+                    } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      showPassword && "ring-2 ring-ring ring-offset-2"
+                    }`}
                   >
-                    {showConfirmPassword ? (
-                      <EyeOff size={20} />
-                    ) : (
-                      <Eye size={20} />
-                    )}
-                  </button>
+                    <input
+                      id="password"
+                      className="border-none outline-none w-full"
+                      type={showPassword ? "text" : "password"}
+                      {...register("password", {
+                        required: "Password is required",
+                      })}
+                    />
+                    <button type="button" onClick={togglePasswordVisibility}>
+                      {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                    </button>
+                  </div>
+                  {errors.password && (
+                    <span className="text-red-500 text-xs">
+                      {errors.password.message}
+                    </span>
+                  )}
                 </div>
-                {errors.confirmPassword && (
-                  <span className="text-red-500 text-xs">
-                    {errors.confirmPassword.message}
-                  </span>
-                )}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button type="submit">Submit</Button>
-            </CardFooter>
-          </form>
-        ) : (
-          <form onSubmit={handleSubmit(onEmailSubmit)}>
-            <CardContent className="space-y-2">
-              <div className="space-y-1">
-                <Label htmlFor="email">REGISTERED EMAIL</Label>
-                <Input
-                  id="email"
-                  name="email"
-                  type="email"
-                  {...register("email", {
-                    required: "Email is required",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Invalid email address",
-                    },
-                  })}
-                  className={`${
-                    errors.email ? "border-red-500" : "border-input"
-                  }`}
-                />
-                {errors.email && (
-                  <span className="text-xs text-red-500">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button type="submit">Submit</Button>
-            </CardFooter>
-          </form>
-        )}
-      </Card>
+                <div className="space-y-1">
+                  <Label htmlFor="confirmPassword">CONFIRM PASSWORD</Label>
+                  <div
+                    className={`flex h-10 w-full rounded-md border ${
+                      errors.confirmPassword ? "border-red-500" : "border-input"
+                    } bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${
+                      showConfirmPassword && "ring-2 ring-ring ring-offset-2"
+                    }`}
+                  >
+                    <input
+                      id="confirmPassword"
+                      className="border-none outline-none w-full"
+                      type={showConfirmPassword ? "text" : "password"}
+                      {...register("confirmPassword", {
+                        required: "Confirm password is required",
+                      })}
+                    />
+                    <button
+                      type="button"
+                      onClick={toggleConfirmPasswordVisibility}
+                    >
+                      {showConfirmPassword ? (
+                        <EyeOff size={20} />
+                      ) : (
+                        <Eye size={20} />
+                      )}
+                    </button>
+                  </div>
+                  {errors.confirmPassword && (
+                    <span className="text-red-500 text-xs">
+                      {errors.confirmPassword.message}
+                    </span>
+                  )}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit">Submit</Button>
+              </CardFooter>
+            </form>
+          ) : (
+            <form onSubmit={handleSubmit(onEmailSubmit)}>
+              <CardContent className="space-y-2">
+                <div className="space-y-1">
+                  <Label htmlFor="email">REGISTERED EMAIL</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    {...register("email", {
+                      required: "Email is required",
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Invalid email address",
+                      },
+                    })}
+                    className={`${
+                      errors.email ? "border-red-500" : "border-input"
+                    }`}
+                  />
+                  {errors.email && (
+                    <span className="text-xs text-red-500">
+                      {errors.email.message}
+                    </span>
+                  )}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button type="submit" className="px-16">
+                  Submit
+                </Button>
+              </CardFooter>
+            </form>
+          )}
+        </Card>
+      </div>
     </div>
   );
 }

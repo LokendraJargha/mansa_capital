@@ -228,7 +228,9 @@ const Customisation = () => {
               </div>
             </CardContent>
             <CardFooter>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" className="px-16">
+                Submit
+              </Button>
             </CardFooter>
           </form>
         </Card>
