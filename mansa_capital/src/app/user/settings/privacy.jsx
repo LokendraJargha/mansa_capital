@@ -42,7 +42,7 @@ const Privacy = () => {
   return (
     <div className="flex flex-row w-2/3 p-4">
       <div className="flex w-1/4 m-4 mr-10 text-lg">PRIVACY</div>
-      <div className="flex w-3/5 flex-col">
+      <div className="flex w-3/4 flex-col">
         <div className="flex justify-start mb-4">
           <button
             className={`px-4 py-2 rounded-l-md ${
@@ -65,14 +65,14 @@ const Privacy = () => {
             Change Password
           </button>
         </div>
-        <div>
+        <div className="px-0">
           {activeTab === "privacy" && (
-            <Card className="w-full">
+            <Card className="max-w-full p-0 ">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-4 px-4">
                   <div className="flex flex-row mt-4">
                     <Label
-                      className="w-1/3 text-sm text-muted-foreground mr-4"
+                      className="w-2/5 text-sm text-muted-foreground mr-4"
                       htmlFor="email"
                     >
                       Email:
@@ -101,7 +101,7 @@ const Privacy = () => {
                   </div>
                   <div className="flex flex-row">
                     <Label
-                      className="w-1/3 text-sm text-muted-foreground mr-4"
+                      className="w-2/5 text-sm text-muted-foreground mr-4"
                       htmlFor="password"
                     >
                       Password:
@@ -142,7 +142,7 @@ const Privacy = () => {
                   </div>
                   <div className="flex flex-row">
                     <Label
-                      className="w-1/3 text-sm text-muted-foreground mr-4"
+                      className="w-2/5 text-sm text-muted-foreground mr-4"
                       htmlFor="phone"
                     >
                       Phone:

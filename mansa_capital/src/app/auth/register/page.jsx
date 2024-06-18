@@ -75,7 +75,12 @@ export default function Register() {
             <CardContent className="space-y-4">
               <div className="flex  space-x-4 w-full">
                 <div className="space-y-1 w-1/2">
-                  <Label htmlFor="firstName">First Name</Label>
+                  <Label
+                    htmlFor="firstName"
+                    className={errors.firstName ? "text-red-500" : ""}
+                  >
+                    First Name
+                  </Label>
                   <Input
                     id="firstName"
                     type="text"
@@ -97,7 +102,12 @@ export default function Register() {
                   )}
                 </div>
                 <div className="space-y-1 w-1/2">
-                  <Label htmlFor="lastName">Last Name</Label>
+                  <Label
+                    htmlFor="lastName"
+                    className={errors.lastName ? "text-red-500" : ""}
+                  >
+                    Last Name
+                  </Label>
                   <Input
                     id="lastName"
                     type="text"
@@ -121,7 +131,12 @@ export default function Register() {
               </div>
 
               <div className="space-y-1">
-                <Label htmlFor="email">Email</Label>
+                <Label
+                  htmlFor="email"
+                  className={errors.email ? "text-red-500" : ""}
+                >
+                  Email
+                </Label>
                 <Input
                   id="email"
                   type="email"
@@ -142,7 +157,12 @@ export default function Register() {
               </div>
               <div className="flex w-full space-x-4">
                 <div className="space-y-1 w-1/2">
-                  <Label htmlFor="password">Password</Label>
+                  <Label
+                    htmlFor="password"
+                    className={errors.password ? "text-red-500" : ""}
+                  >
+                    Password
+                  </Label>
                   <div
                     className={`flex h-10 w-full rounded-md border ${
                       errors.password ? "border-red-500" : "border-input"
@@ -169,7 +189,12 @@ export default function Register() {
                   )}
                 </div>
                 <div className="space-y-1 w-1/2">
-                  <Label htmlFor="confirmPassword">Confirm Password</Label>
+                  <Label
+                    htmlFor="confirmPassword"
+                    className={errors.confirmPassword ? "text-red-500" : ""}
+                  >
+                    Confirm Password
+                  </Label>
                   <div
                     className={`flex h-10 w-full rounded-md border ${
                       errors.confirmPassword ? "border-red-500" : "border-input"
@@ -205,7 +230,7 @@ export default function Register() {
                   )}
                 </div>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center py-2 space-x-2">
                 <input
                   id="terms"
                   type="checkbox"
@@ -240,7 +265,7 @@ export default function Register() {
               </Button>
             </CardFooter>
           </form>
-          <div className="text-sm text-muted-foreground mx-10 mb-2">
+          <div className="text-sm justify-center text-center text-muted-foreground mx-10 mb-2">
             <p>
               Have an account?{" "}
               <a href="/auth/login" className="hover:underline text-blue-500">

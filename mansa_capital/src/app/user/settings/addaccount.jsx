@@ -65,7 +65,9 @@ const AddAccount = ({ onAddAccount }) => {
           <CardContent className="space-y-2 my-4 py-4">
             <div className="flex flex-row w-full">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.accountno ? "text-red-500" : ""
+                }`}
                 htmlFor="accountno"
               >
                 Account No:
@@ -87,7 +89,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.password ? "text-red-500" : ""
+                }`}
                 htmlFor="password"
               >
                 Password:
@@ -119,7 +123,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.accounttype ? "text-red-500" : ""
+                }`}
                 htmlFor="accounttype"
               >
                 Account Type:
@@ -141,7 +147,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.leverage ? "text-red-500" : ""
+                }`}
                 htmlFor="leverage"
               >
                 Leverage:
@@ -163,7 +171,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.entryMethod ? "text-red-500" : ""
+                }`}
                 htmlFor="entryMethod"
               >
                 Trade Entry Method:
@@ -191,7 +201,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.tradeSize ? "text-red-500" : ""
+                }`}
                 htmlFor="tradeSize"
               >
                 Trade Size:
@@ -269,7 +281,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div> */}
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.tradingStyle ? "text-red-500" : ""
+                }`}
                 htmlFor="tradingStyle"
               >
                 Trading Style:
@@ -298,7 +312,9 @@ const AddAccount = ({ onAddAccount }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.csv ? "text-red-500" : ""
+                }`}
                 htmlFor="csv"
               >
                 CSV:

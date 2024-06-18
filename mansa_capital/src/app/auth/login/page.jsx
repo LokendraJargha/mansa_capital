@@ -70,7 +70,12 @@ export default function Login_Page() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <CardContent className="space-y-4">
               <div className="space-y-1">
-                <Label htmlFor="email">Email</Label>
+                <Label
+                  htmlFor="email"
+                  className={errors.email ? "text-red-500" : ""}
+                >
+                  Email
+                </Label>
                 <Input
                   id="email"
                   name="email"
@@ -93,7 +98,12 @@ export default function Login_Page() {
                 )}
               </div>
               <div className="space-y-1">
-                <Label htmlFor="password">Password</Label>
+                <Label
+                  htmlFor="password"
+                  className={errors.password ? "text-red-500" : ""}
+                >
+                  Password
+                </Label>
                 <div
                   className={`flex h-10 w-full rounded-md border ${
                     errors.password ? "border-red-500" : "border-input"
@@ -121,7 +131,7 @@ export default function Login_Page() {
                 )}
               </div>
             </CardContent>
-            <div className="lex items-center px-10 space-x-2">
+            <div className="lex items-center py-2 px-10 space-x-2">
               <Checkbox id="remember" {...register("remember")} />
               <label
                 htmlFor="remember"

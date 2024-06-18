@@ -49,7 +49,7 @@ export default function ResetPassword() {
       console.log("Response:", res); // Log the response
       if (res.ok) {
         setEmailForReset(data.email);
-        toast("User account found");
+        // toast("User account found");
       } else {
         toast.error("User account not found");
       }
@@ -104,18 +104,23 @@ export default function ResetPassword() {
       <div className="flex justify-center items-center min-h-screen">
         <Card className="flex flex-col justify-center w-full max-w-sm border rounded-lg ring-gray-200 px-2 mx-2 bg-white bg-opacity-100 backdrop-blur-lg">
           <CardHeader>
-            <CardTitle>Sign In to Your Account</CardTitle>
+            <CardTitle>Reset Passeord</CardTitle>
           </CardHeader>
           {emailForReset ? (
             <form onSubmit={handleSubmit(handlePasswordReset)}>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-4">
                 <input
                   type="hidden"
                   value={emailForReset}
                   {...register("email")}
                 />
                 <div className="space-y-1">
-                  <Label htmlFor="token">Token</Label>
+                  <Label
+                    htmlFor="token"
+                    className={errors.token ? "text-red-500" : ""}
+                  >
+                    Token
+                  </Label>
                   <Input
                     id="token"
                     name="token"
@@ -137,7 +142,12 @@ export default function ResetPassword() {
                   )}
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="password">PASSWORD</Label>
+                  <Label
+                    htmlFor="password"
+                    className={errors.password ? "text-red-500" : ""}
+                  >
+                    Password
+                  </Label>
                   <div
                     className={`flex h-10 w-full rounded-md border ${
                       errors.password ? "border-red-500" : "border-input"
@@ -164,7 +174,12 @@ export default function ResetPassword() {
                   )}
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="confirmPassword">CONFIRM PASSWORD</Label>
+                  <Label
+                    htmlFor="confirmPassword"
+                    className={errors.confirmPassword ? "text-red-500" : ""}
+                  >
+                    Confirm Password
+                  </Label>
                   <div
                     className={`flex h-10 w-full rounded-md border ${
                       errors.confirmPassword ? "border-red-500" : "border-input"
@@ -199,14 +214,21 @@ export default function ResetPassword() {
                 </div>
               </CardContent>
               <CardFooter>
-                <Button type="submit">Submit</Button>
+                <Button type="submit" className="px-16">
+                  Submit
+                </Button>
               </CardFooter>
             </form>
           ) : (
             <form onSubmit={handleSubmit(onEmailSubmit)}>
-              <CardContent className="space-y-2">
+              <CardContent className="space-y-4">
                 <div className="space-y-1">
-                  <Label htmlFor="email">REGISTERED EMAIL</Label>
+                  <Label
+                    htmlFor="email"
+                    className={errors.email ? "text-red-500" : ""}
+                  >
+                    Email
+                  </Label>
                   <Input
                     id="email"
                     name="email"

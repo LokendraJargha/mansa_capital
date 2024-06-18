@@ -87,7 +87,9 @@ const ShowAccount = ({ account, onEdit }) => {
           <CardContent className="space-y-2 my-4 py-4">
             <div className="flex flex-row w-full">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.accountno ? "text-red-500" : ""
+                }`}
                 htmlFor="accountno"
               >
                 Account No:
@@ -110,7 +112,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.password ? "text-red-500" : ""
+                }`}
                 htmlFor="password"
               >
                 Password:
@@ -143,7 +147,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.accounttype ? "text-red-500" : ""
+                }`}
                 htmlFor="accounttype"
               >
                 Account Type:
@@ -166,7 +172,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.leverage ? "text-red-500" : ""
+                }`}
                 htmlFor="leverage"
               >
                 Leverage:
@@ -189,7 +197,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.entryMethod ? "text-red-500" : ""
+                }`}
                 htmlFor="entryMethod"
               >
                 Trade Entry Method:
@@ -218,7 +228,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.tradeSize ? "text-red-500" : ""
+                }`}
                 htmlFor="tradeSize"
               >
                 Trade Size:
@@ -241,7 +253,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.tradingStyle ? "text-red-500" : ""
+                }`}
                 htmlFor="tradingStyle"
               >
                 Trading Style:
@@ -271,7 +285,9 @@ const ShowAccount = ({ account, onEdit }) => {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-2/5 text-sm text-muted-foreground text-right mr-4"
+                className={`w-2/5 text-sm text-muted-foreground text-right mr-4 ${
+                  errors.csv ? "text-red-500" : ""
+                }`}
                 htmlFor="csv"
               >
                 CSV:
@@ -293,11 +309,15 @@ const ShowAccount = ({ account, onEdit }) => {
           </CardContent>
           <CardFooter>
             {!isEditing ? (
-              <Button className="flex" type="button" onClick={handleEditClick}>
+              <Button
+                className="flex px-16"
+                type="button"
+                onClick={handleEditClick}
+              >
                 Edit
               </Button>
             ) : (
-              <Button className="flex" type="submit">
+              <Button className="flex px-16" type="submit">
                 Update
               </Button>
             )}

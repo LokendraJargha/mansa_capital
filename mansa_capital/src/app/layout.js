@@ -13,6 +13,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+      <script src="https://js.stripe.com/v3/"></script>
+      </head>
       <body className={inter.className}>
         <ToastContainer/>
         {children}

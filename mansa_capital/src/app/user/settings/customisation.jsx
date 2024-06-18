@@ -39,12 +39,12 @@ const Customisation = () => {
   };
 
   return (
-    <div className="flex flex-row p-4">
+    <div className="flex flex-row px-4 py-10">
       <div className="flex w-1/5 m-4 text-lg">CUSTOMISATIONS</div>
       <div className="flex w-1/2 flex-col">
-        <Card className="w-full">
+        <Card className="max-w-full p-0">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <CardContent className="space-y-2 my-4 py-4">
+            <CardContent className="p-4">
               <input
                 type="hidden"
                 value={

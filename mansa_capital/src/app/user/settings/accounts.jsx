@@ -89,7 +89,7 @@ const Accounts = () => {
 
   return (
     <div className="flex w-full">
-      <div className="flex w-2/5">
+      <div className="flex w-2/5 mx-4">
         <div className="lex w-1/2 m-4 text-lg">ACCOUNTS</div>
         <div className="flex w-1/2">
           <ul className="flex w-full flex-col-reverse text-sm text-muted-foreground items-start justify-end">
@@ -100,7 +100,9 @@ const Accounts = () => {
                     <p
                       onClick={() => handleShowAccount(account)}
                       className={`w-full p-4 rounded-lg cursor-pointer hover:underline flex items-center ${
-                        selectedAccount === account ? "bg-yellow-50" : ""
+                        selectedAccount === account
+                          ? "text-white bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500"
+                          : ""
                       }`}
                     >
                       Account: {account.account_number}
@@ -114,7 +116,7 @@ const Accounts = () => {
             )}
             <li
               className={`flex w-full rounded-lg ${
-                isAddAccountClicked ? "bg-yellow-50" : ""
+                isAddAccountClicked ? "bg-white" : ""
               }`}
             >
               <Button

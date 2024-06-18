@@ -73,22 +73,13 @@ export default function ChangePassword() {
     }
   };
   return (
-    <div>
-      <Card className="w-full">
+    <div className="p-0">
+      <Card className="max-w-full p-0">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <CardContent className="space-y-2">
-            <input
-              type="hidden"
-              value={
-                loggedInUserData
-                  ? loggedInUserData.email
-                  : "thomasanres@gmail.com"
-              }
-              {...register("email")}
-            />
-            <div className="flex flex-row">
+          <CardContent className="space-y-4 px-4">
+            <div className="flex flex-row mt-4">
               <Label
-                className="w-1/3 text-sm text-muted-foreground mr-4"
+                className="w-2/5 text-sm text-muted-foreground mr-4"
                 htmlFor="oldPassword"
               >
                 Old Password:
@@ -120,7 +111,7 @@ export default function ChangePassword() {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-1/3 text-sm text-muted-foreground mr-4"
+                className="w-2/5 text-sm text-muted-foreground mr-4"
                 htmlFor="password"
               >
                 New Password:
@@ -152,7 +143,7 @@ export default function ChangePassword() {
             </div>
             <div className="flex flex-row">
               <Label
-                className="w-1/3 text-sm text-muted-foreground mr-4"
+                className="w-2/5 text-sm text-muted-foreground mr-4"
                 htmlFor="confirmPassword"
               >
                 Confirm Password:
@@ -189,6 +180,15 @@ export default function ChangePassword() {
                 )}
               </div>
             </div>
+            <input
+              type="hidden"
+              value={
+                loggedInUserData
+                  ? loggedInUserData.email
+                  : "thomasanres@gmail.com"
+              }
+              {...register("email")}
+            />
           </CardContent>
           <CardFooter>
             <Button type="submit" className="px-16">

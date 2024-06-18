@@ -19,7 +19,8 @@ export default function UserLayout({children}){
           <Sidebar />
         </div>
         <div className="flex flex-col flex-1 ml-[20%] overflow-y-auto overflow-x-auto mt-5 bg-zinc-200">
-          <div className="flex-1 ">{children}</div>
+          <div className="flex-1 ">
+          {children}</div>
         </div>
       </div>
     </div>

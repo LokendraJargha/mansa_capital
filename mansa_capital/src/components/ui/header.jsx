@@ -35,9 +35,9 @@ const Header = () => {
   }, [showDropdownMenu]);
 
   return (
-    <div className="flex items-center justify-between p-4 bg-[#174894] dark:bg-zinc-800 shadow-md relative">
+    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 dark:bg-zinc-800 shadow-md relative">
       <div className="flex items-center space-x-4">
-        <div className="flex items-center justify-center bg-[#174894]">
+        <div className="flex items-center justify-center ">
           <img
             src="https://placehold.co/30x30"
             alt="TailAdmin Logo"
