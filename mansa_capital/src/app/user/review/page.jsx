@@ -55,7 +55,6 @@ export default function Review() {
   );
 }
 
-WWW;
 const ThreeTabs = () => {
   return (
     <div className="flex gap-12 text-primary">

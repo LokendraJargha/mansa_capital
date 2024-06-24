@@ -1,21 +1,25 @@
+// config/useSubsStore.js
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
 const useSubsStore = create(
   persist(
     (set) => ({
+      subscriptionScheduleId: null,
       subscribedUserData: null,
       token: null,
-      _hasHydrated: false,
+      isHydrated: false,
+      
       setSubscribedUserData: (subsData) => set({ subscribedUserData: subsData }),
+      setSubscriptionScheduleId: (subsId) => set({ subscriptionScheduleId: subsId }),
       setToken: (token) => set({ token }),
       clearSubscriptionData: () => set({ subscribedUserData: null, token: null }),
-      setHasHydrated: (state) => set({ _hasHydrated: state }),
+      setIsHydrated: (state) => set({ isHydrated: state }),
     }),
     {
       name: 'mansa_capital',
       onRehydrateStorage: () => (state) => {
-        state.setHasHydrated(true);
+        state.setIsHydrated(true);
       },
     }
   )
