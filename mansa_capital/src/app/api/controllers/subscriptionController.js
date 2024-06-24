@@ -1,6 +1,14 @@
 import connectDB from "../../../../config/database";
 import subscriptionSchema from "../../../../models/subscriptionSchema";
+import Stripe from "stripe";
 import paymentSchema from "../../../../models/paymentSchema";
+
+const stripe = new Stripe(
+  "sk_test_51PQOvg07HRkzWOMzAPKBm0BhuIMwDj8jEpxkJh0W8auhAVXuiD2grqooyNKhelUKkAOf51OtYqUpQTMex2ocTFCd004ghD07w7",
+  {
+    apiVersion: "2020-08-27",
+  }
+);
 
 export async function isActiveSubscriber(email) {
   try {
@@ -71,3 +79,39 @@ export async function insertPayment(data) {
     return null; // Handle error appropriately
   }
 }
+
+export async function subsById(email) {
+  try {
+    console.log('subscription of', email);
+    await connectDB(); // Ensure the database connection is successful
+
+    // Find accounts where the 'created_by' field matches the provided email
+    const subscription = await subscriptionSchema.find({ email: email });
+
+    if (!subscription) {
+      console.log('No subscription found for', email);
+      return null; // Return empty array if no accounts are found
+    }
+
+    console.log('subscription fetched successfully.', subscription);
+    return subscription;
+    console.log('subscription fetched successfully 2.');
+  } catch (err) {
+    console.error('Error fetching subscription:', err);
+    throw new Error('Failed to fetch subscription'); // Rethrow the error to propagate it further
+  }
+}
+
+export async function price() {
+    const price = await stripe.prices.create({
+      unit_amount: 1000, // Amount in cents
+      currency: 'usd',
+      recurring: { interval: 'month' }, // Interval of billing
+      product_data: {
+        name: 'Premium Subscription',
+      },
+    });
+    console.log('Price object created:', price);
+  return price;
+}
+

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import {
   useStripe,
   useElements,
@@ -12,8 +13,17 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ToastContainer, toast } from "react-toastify";
 import useAuthStore from "../../../../config/userStore";
+import useSubsStore from "../../../../config/subscriptionStore";
 
 const CheckoutForm = () => {
+  const {
+    subscriptionScheduleId,
+    setSubscriptionScheduleId,
+    subscribedUserData,
+    setSubscribedUserData,
+    setToken,
+  } = useSubsStore();
+  const router = useRouter();
   const { loggedInUserData } = useAuthStore();
   const stripe = useStripe();
   const elements = useElements();
@@ -33,7 +43,7 @@ const CheckoutForm = () => {
     reset,
   } = useForm();
 
-  const AMOUNT_TO_PAY = 1000; // Example amount in cents (e.g., $10.00)
+  const AMOUNT_TO_PAY = 10000; // Example amount in cents (e.g., $10.00)
   const CURRENCY_CODE = "USD"; // Example currency code
 
   const handleCardNumberChange = (event) => {
@@ -141,7 +151,7 @@ const CheckoutForm = () => {
         data
       );
 
-      const response = await fetch("/api/payment", {
+      const response = await fetch("/api/subscription/subscribe", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -155,12 +165,17 @@ const CheckoutForm = () => {
         }),
       });
 
-      const responseData = await response.json();
-      console.log(responseData);
-      if (responseData.success) {
+      const resData = await response.json();
+      console.log(resData);
+      if (resData.success) {
         toast("Account created successfully");
-        reset(); // Reset the form after successful submission
-        window.location.reload(); // Reload the page
+        setToken(resData.token);
+        setSubscribedUserData(resData.data);
+        setSubscriptionScheduleId(resData.subscriptionScheduleId);
+        console.log("token is", resData.token);
+        console.log("Subscribed user data is", subscribedUserData?.email);
+        router.push("/user/settings");
+        // window.location.reload(); // Reload the page
       } else {
         toast.error("Account submission failed");
       }

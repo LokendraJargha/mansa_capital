@@ -200,12 +200,8 @@ export default function StrategyTable() {
             />
           </div>
         </div>
-        <Button
-          variant="outline"
-          className="bg-gray-400 hover:bg-[#174894] hover:text-white"
-          onClick={handleClick}
-        >
-          Add a New Backtesting Sessin
+        <Button className="m-4 bg-[#174894]" onClick={handleClick}>
+          Add a New Backtesting Session
         </Button>
       </div>
       <Table className="rounded-lg overflow-hidden">
